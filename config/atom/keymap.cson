@@ -1,4 +1,0 @@
-'body':
-	'ctrl-shift-down': 'editor:move-line-down'
-	'ctrl-shift-up': 'editor:move-line-up'
-	'ctrl-s': 'window:save-all'
