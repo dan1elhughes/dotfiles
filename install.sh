@@ -34,21 +34,6 @@ for f in $DFD/config/atom/*; do
 	echo ":: $file"
 done
 
-# Creates gitconfig.
-[ -z "$GIT_EMAIL" ] && _if_email=';'
-[ -z "$GIT_NAME" ] && _if_name=';'
-[ -z "$GIT_SIGNING_KEY" ] && _if_key=';'
-cat "$DFD/config/git/gitconfig" | \
-sed -e "s/{{ _if_email }}/$_if_email/g" | \
-sed -e "s/{{ GIT_EMAIL }}/$GIT_EMAIL/g" | \
-sed -e "s/{{ _if_name }}/$_if_name/g" | \
-sed -e "s/{{ GIT_NAME }}/$GIT_NAME/g" | \
-sed -e "s/{{ _if_key }}/$_if_key/g" | \
-sed -e "s/{{ GIT_KEY }}/$GIT_SIGNING_KEY/g" | \
-sed -e "s/{{ GIT_EDITOR }}/$GIT_EDITOR/g" \
-> "$HOME/.gitconfig"
-echo ":: $HOME/.gitconfig"
-
 # Creates ssh config
 SSH_CONTENT=''
 if [ -n "$SSH_CONFIG" ]; then
