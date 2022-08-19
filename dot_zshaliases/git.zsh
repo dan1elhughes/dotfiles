@@ -1,4 +1,3 @@
-unalias g
 g() {
 	if [ "$#" -eq 0 ]; then
 		git status --short --branch
