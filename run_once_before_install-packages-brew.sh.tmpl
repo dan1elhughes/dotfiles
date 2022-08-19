@@ -1,0 +1,53 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+if ! command -v brew &> /dev/null
+then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+brew bundle --quiet --no-lock --file=/dev/stdin <<EOF
+tap "heroku/brew"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-drivers"
+tap "homebrew/core"
+brew "ansible"
+brew "bat"
+brew "coreutils"
+brew "dog"
+brew "dust"
+brew "entr"
+brew "fd"
+brew "ffmpeg"
+brew "fzf"
+brew "gh"
+brew "gifsicle"
+brew "git-delta"
+brew "git-lfs"
+brew "git"
+brew "gitui"
+brew "go"
+brew "gpg"
+brew "htop"
+brew "httpie"
+brew "hub"
+brew "hugo"
+brew "imagemagick"
+brew "jq"
+brew "k9s"
+brew "kubernetes-cli"
+brew "micro"
+brew "moreutils"
+brew "nvm"
+brew "prettyping"
+brew "pv"
+brew "ripgrep"
+brew "rsync"
+brew "semgrep"
+brew "starship"
+brew "watch"
+brew "wget"
+brew "zsh"
+EOF
+{{ end -}}

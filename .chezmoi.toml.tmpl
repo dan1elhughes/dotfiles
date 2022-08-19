@@ -1,0 +1,6 @@
+{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $gitsigningkey := promptStringOnce . "gitsigningkey" "Git signing key" -}}
+
+[data]
+    email = {{ $email | quote }}
+    gitsigningkey = {{ $gitsigningkey | quote }}

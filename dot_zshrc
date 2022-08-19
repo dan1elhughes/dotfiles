@@ -1,0 +1,23 @@
+plugins=(git kubectl zsh-autosuggestions brew zsh-z)
+
+export ZSH="/Users/danhughes/.oh-my-zsh"
+source $ZSH/oh-my-zsh.sh
+
+# Managed by chezmoiexternal.
+DISABLE_AUTO_UPDATE="true"
+
+export PATH="/opt/homebrew/bin:$PATH"
+
+for file in $HOME/.zshaliases/* ; do
+  if [ -f "$file" ] ; then
+    source "$file"
+  fi
+done
+
+# NVM stuff
+mkdir -p ~/.nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
+eval "$(starship init zsh)"

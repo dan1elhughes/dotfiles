@@ -1,0 +1,38 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+if ! command -v brew &> /dev/null
+then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+brew bundle --quiet --no-lock --file=/dev/stdin <<EOF
+cask "balenaetcher"
+cask "browserosaurus"
+cask "db-browser-for-sqlite"
+cask "fantastical"
+cask "firefox"
+cask "fork"
+cask "google-drive"
+cask "gpg-suite"
+cask "hot"
+cask "insomnia"
+cask "iterm2"
+cask "karabiner-elements"
+cask "ngrok"
+cask "postico"
+cask "postman"
+cask "raycast"
+cask "rectangle"
+cask "rocket-typist"
+cask "rocket"
+cask "signal"
+cask "spotify"
+cask "tailscale"
+cask "ticktick"
+cask "visual-studio-code"
+EOF
+
+# Force idempotency. Otherwise, brew exits with a 1 for already-installed apps.
+exit 0
+{{ end -}}

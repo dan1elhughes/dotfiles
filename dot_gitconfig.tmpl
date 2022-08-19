@@ -1,0 +1,48 @@
+[user]
+	name = "Dan Hughes"
+	email = "{{ .email }}"
+	signingkey = "{{ .gitsigningkey }}"
+[push]
+	default = current
+	autoSetupRemote = true
+[branch]
+	autosetuprebase = always
+[commit]
+	gpgsign = true
+[fetch]
+	prune = true
+[core]
+	autocrlf = input
+	pager = delta
+	fsmonitor = true
+	untrackedcache = true
+[interactive]
+	diffFilter = delta --color-only --features=interactive
+[delta]
+	features = decorations
+[delta "interactive"]
+    keep-plus-minus-markers = false
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+[alias]
+    aliases = "config --get-regexp alias"
+    start = "commit --allow-empty -m 'Initial commit'"
+    reword = "commit -v --amend --only"
+    extend = "commit -v --amend --no-edit"
+    amend = "commit -v --amend"
+    unstage = "reset HEAD --"
+    forget = "checkout --"
+    pop = "reset HEAD^"
+    remotes = "remote -v"
+    feature = "!f() { echo feature/$@ | sed -e 's/ /-/g' | xargs git checkout -b; }; f"
+    bugfix = "!f() { echo bugfix/$@ | sed -e 's/ /-/g' | xargs git checkout -b; }; f"
+    track = "!f() { git branch -u origin/`git rev-parse --abbrev-ref HEAD`; }; f"
+    up = "!f() { git fetch origin $1:$1; }; f"
+    ignore = "!f() { curl -sSL \"gitignore.io/api/$@\"; }; f"
+    compare = "!f() { gh pr create -w; }; f"
