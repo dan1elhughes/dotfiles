@@ -1,8 +1,8 @@
 unalias g
 g() {
 	if [ "$#" -eq 0 ]; then
-		hub status --short --branch
+		git status --short --branch
 	else
-		hub "$@"
+		git "$@"
 	fi
 }
