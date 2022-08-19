@@ -16,5 +16,5 @@
 ["Library/Fonts/FiraCodeNerdFont"]
     type = "archive"
     exact = true
-    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
     refreshPeriod = "168h"
