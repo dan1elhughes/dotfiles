@@ -1,0 +1,16 @@
+# https://starship.rs/config
+
+[aws]
+disabled = true
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[java]
+disabled = true
+
+[kubernetes]
+disabled = false
