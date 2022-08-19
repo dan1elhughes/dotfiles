@@ -13,3 +13,8 @@
     exact = true
     url = "https://github.com/zsh-users/zsh-autosuggestions"
     refreshPeriod = "168h"
+["Library/Fonts/FiraCodeNerdFont"]
+    type = "archive"
+    exact = true
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip"
+    refreshPeriod = "168h"
