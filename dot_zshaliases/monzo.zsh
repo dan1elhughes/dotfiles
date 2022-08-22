@@ -36,6 +36,20 @@ watchtests() {
     fd -e go | entr -c sh -c "go test ./... && echo ✅ || echo ❌"
 }
 
+# Watch all files for changes, and build when they change.
+watchbuild() {
+    if ! command -v fd &> /dev/null; then
+        echo "fd not installed"
+        return 1
+    fi
+    if ! command -v entr &> /dev/null; then
+        echo "fd not installed"
+        return 1
+    fi
+
+    fd -e go | entr -c sh -c "go build ./... && echo ✅ || echo ❌"
+}
+
 # Send the current branch into staging or prod.
 #
 # Deploy to staging:    yeet
