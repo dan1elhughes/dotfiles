@@ -16,6 +16,7 @@ function waitmerge() {
     gh pr merge $1 --squash --delete-branch > /dev/null 2>&1
     while [ $? -ne 0 ]; do
         echo -n "."
+        sleep 5
         gh pr merge $1 --squash --delete-branch > /dev/null 2>&1
     done
 
