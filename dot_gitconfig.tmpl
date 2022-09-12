@@ -46,3 +46,5 @@
     up = "!f() { git fetch origin $1:$1; }; f"
     ignore = "!f() { curl -sSL \"gitignore.io/api/$@\"; }; f"
     compare = "!f() { gh pr create -w; }; f"
+[init]
+    defaultBranch = master
