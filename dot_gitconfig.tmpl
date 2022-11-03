@@ -1,25 +1,31 @@
 [user]
-	name = "Dan Hughes"
-	email = "{{ .email }}"
-	signingkey = "{{ .gitsigningkey }}"
+    name = "Dan Hughes"
+    email = "{{ .personalemail }}"
+    signingkey = "{{ .personalgitsigningkey }}"
+[includeIf "gitdir:~/src/github.com/monzo/"]
+    path = ~/.work.gitconfig
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [push]
-	default = current
-	autoSetupRemote = true
+    default = current
+    autoSetupRemote = true
 [branch]
-	autosetuprebase = always
+    autosetuprebase = always
 [commit]
-	gpgsign = true
+    gpgsign = true
 [fetch]
-	prune = true
+    prune = true
 [core]
-	autocrlf = input
-	pager = delta
-	fsmonitor = true
-	untrackedcache = true
+    autocrlf = input
+    pager = delta
+    fsmonitor = true
+    untrackedcache = true
 [interactive]
-	diffFilter = delta --color-only --features=interactive
+    diffFilter = delta --color-only --features=interactive
 [delta]
-	features = decorations
+    features = decorations
 [delta "interactive"]
     keep-plus-minus-markers = false
 [delta "decorations"]

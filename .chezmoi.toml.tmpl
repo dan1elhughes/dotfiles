@@ -1,8 +1,12 @@
-{{- $email := promptStringOnce . "email" "Email address" -}}
-{{- $gitsigningkey := promptStringOnce . "gitsigningkey" "Git signing key" -}}
+{{- $personalemail := promptStringOnce . "personalemail" "Personal email address" -}}
+{{- $personalgitsigningkey := promptStringOnce . "personalgitsigningkey" "Personal git signing key" -}}
+{{- $workemail := promptStringOnce . "workemail" "Work email address" -}}
+{{- $workgitsigningkey := promptStringOnce . "workgitsigningkey" "Work git signing key" -}}
 
 [data]
-    email = {{ $email | quote }}
-    gitsigningkey = {{ $gitsigningkey | quote }}
+    personalemail = {{ $personalemail | quote }}
+    personalgitsigningkey = {{ $personalgitsigningkey | quote }}
+    workemail = {{ $workemail | quote }}
+    workgitsigningkey = {{ $workgitsigningkey | quote }}
 [diff]
     exclude = ["externals"]
