@@ -1,11 +1,11 @@
-{{- $personalemail := promptStringOnce . "personalemail" "Personal email address" -}}
-{{- $personalgitsigningkey := promptStringOnce . "personalgitsigningkey" "Personal git signing key" -}}
+{{- $persemail := promptStringOnce . "persemail" "Personal email address" -}}
+{{- $persgitsigningkey := promptStringOnce . "persgitsigningkey" "Personal git signing key" -}}
 {{- $workemail := promptStringOnce . "workemail" "Work email address" -}}
 {{- $workgitsigningkey := promptStringOnce . "workgitsigningkey" "Work git signing key" -}}
 
 [data]
-    personalemail = {{ $personalemail | quote }}
-    personalgitsigningkey = {{ $personalgitsigningkey | quote }}
+    persemail = {{ $persemail | quote }}
+    persgitsigningkey = {{ $persgitsigningkey | quote }}
     workemail = {{ $workemail | quote }}
     workgitsigningkey = {{ $workgitsigningkey | quote }}
 [diff]
