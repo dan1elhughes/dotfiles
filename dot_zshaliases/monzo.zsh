@@ -19,9 +19,6 @@ y() {
     yarn && yarn workspace "@mondough/$1" start
 }
 
-# Disable CLI emoji to fix spacing bug.
-alias £="£ --prompt.emoji=false"
-
 # Shorthand for protobuf generation. Usage: `proto .`
 alias proto="../bin/generate_protobufs"
 
