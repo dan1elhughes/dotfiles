@@ -4,12 +4,11 @@
     signingkey = "{{ .persgitsigningkey }}"
 [includeIf "gitdir:~/src/github.com/monzo/"]
     path = ~/.work.gitconfig
-# Uncomment when 1Password 8 installed at work.
-# [gpg]
-#     format = gpg
-# [gpg "ssh"]
-#     allowedSignersFile = ~/.ssh/allowed_signers
-#     program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    allowedSignersFile = ~/.ssh/allowed_signers
+    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [push]
     default = current
     autoSetupRemote = true
