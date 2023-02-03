@@ -3,15 +3,18 @@
 
 # Shorthands for deployment. Usage: `ship <pr or branch name>`
 alias shipper="caffeinate -dis shipper"
-alias ship="shipper deploy --skip-confirm-rollout --s101 --disable-progressive-rollouts"
+alias ship="shipper deploy --skip-confirm-rollout --s101 --wait"
 alias shipp="shipper deploy --skip-confirm-rollout --prod"
 
 letsgo() {
     pr="$1"
+    vpn &&
     waitmerge "$pr" && \
-    vpn && \
+    say "Merged. Starting staging deployment" && \
     ship "$pr" && \
-    shipp "$pr"
+    say "Staging live. Starting production deployment" && \
+    shipp "$pr" && \
+    say "Production live."
 }
 
 y() {
