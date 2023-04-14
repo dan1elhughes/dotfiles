@@ -6,6 +6,10 @@ Host rocinante
 	HostName 100.72.123.112
 	User dan
 
+Host speckle
+	HostName 100.116.144.74
+	User dan
+
 Host tycho
 	HostName 100.111.157.79
 	User pi
