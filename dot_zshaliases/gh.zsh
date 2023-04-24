@@ -7,7 +7,7 @@ function copypr() {
     additions=$(echo $content | jq -r '.additions')
     deletions=$(echo $content | jq -r '.deletions')
 
-    echo -e ":github-green: $title (+$additions, -$deletions)\n:pr-arrow-darkmode: $url" | pbcopy
+    echo -e ":github: $title (+$additions, -$deletions)\n:prarrow: $url" | pbcopy
 
     echo "✅ Pull request copied to clipboard in Slack format."
 }
