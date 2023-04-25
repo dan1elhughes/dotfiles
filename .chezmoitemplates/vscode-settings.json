@@ -1,4 +1,22 @@
 {
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[proto3]": {
+    "editor.formatOnSave": false
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.fontFamily": "FiraCodeNerdFontComplete-Retina",
@@ -6,7 +24,9 @@
   "editor.fontSize": 18,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
+  "editor.guides.indentation": false,
   "editor.hideCursorInOverviewRuler": true,
+  "editor.inlineSuggest.enabled": true,
   "editor.lineHeight": 34,
   "editor.lineNumbers": "interval",
   "editor.minimap.enabled": false,
@@ -31,39 +51,30 @@
       }
     ]
   },
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "go.coverOnSave": true,
+  "go.coverOnSingleTest": true,
   "go.coverageDecorator": {
     "type": "gutter",
     "coveredGutterStyle": "blockblue",
     "uncoveredGutterStyle": "slashyellow"
   },
-  "go.coverOnSingleTest": true,
+  "go.installDependenciesWhenBuilding": true,
   "go.useLanguageServer": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.validate.enable": false,
   "problems.decorations.enabled": false,
+  "rewrap.autoWrap.enabled": true,
   "search.exclude": {
     "**/node_modules": true,
     "**.rule": true
   },
   "search.useIgnoreFiles": true,
+  "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.fontSize": 16,
-  "window.restoreWindows": "none",
-  "window.zoomLevel": 0,
-  "workbench.activityBar.visible": false,
-  "workbench.colorTheme": "Ayu Mirage",
-  "workbench.editor.enablePreviewFromQuickOpen": false,
-  "workbench.editor.showIcons": false,
-  "workbench.iconTheme": "ayu",
-  "workbench.startupEditor": "newUntitledFile",
-  "workbench.statusBar.visible": false,
-  "zenMode.centerLayout": false,
-  "zenMode.fullScreen": false,
-  "explorer.confirmDragAndDrop": false,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "go.installDependenciesWhenBuilding": true,
-  "rewrap.autoWrap.enabled": true,
   "todohighlight.keywords": [
     {
       "text": "t.Skip()",
@@ -75,22 +86,15 @@
       "isWholeLine": true
     }
   ],
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[proto3]": {
-    "editor.formatOnSave": false
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.guides.indentation": false,
-  "security.workspace.trust.untrustedFiles": "open",
-  "explorer.confirmDelete": false
+  "window.restoreWindows": "none",
+  "window.zoomLevel": 0,
+  "workbench.activityBar.visible": false,
+  "workbench.colorTheme": "Ayu Mirage",
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.showIcons": false,
+  "workbench.iconTheme": "ayu",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.statusBar.visible": false,
+  "zenMode.centerLayout": false,
+  "zenMode.fullScreen": false
 }
