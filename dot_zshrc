@@ -6,7 +6,10 @@ source $ZSH/oh-my-zsh.sh
 # Managed by chezmoiexternal.
 DISABLE_AUTO_UPDATE="true"
 
+export GOPATH=$HOME
+
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 for file in $HOME/.zshaliases/* ; do
   if [ -f "$file" ] ; then
@@ -21,6 +24,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
 # Go stuff
-export PATH="/opt/homebrew/opt/go@1.18/bin:$PATH"
+export PATH="/opt/homebrew/opt/go/bin:$PATH"
 
 eval "$(starship init zsh)"
