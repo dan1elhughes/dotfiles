@@ -51,6 +51,7 @@
       }
     ]
   },
+  "emmet.showExpandedAbbreviation": "never",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "files.insertFinalNewline": true,
@@ -87,7 +88,6 @@
     }
   ],
   "window.restoreWindows": "none",
-  "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
   "workbench.colorTheme": "Ayu Mirage",
   "workbench.editor.enablePreviewFromQuickOpen": false,
@@ -96,5 +96,6 @@
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": false,
   "zenMode.centerLayout": false,
-  "zenMode.fullScreen": false
+  "zenMode.fullScreen": false,
+  "explorer.openEditors.visible": 0
 }
