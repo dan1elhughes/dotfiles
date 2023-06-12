@@ -19,7 +19,7 @@
   },
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.fontFamily": "IntelOneMono-Regular, monospace",
+  "editor.fontFamily": "SourceCodePro-Medium, monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 18,
   "editor.formatOnPaste": true,
