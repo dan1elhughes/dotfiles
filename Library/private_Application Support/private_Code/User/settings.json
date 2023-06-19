@@ -64,7 +64,9 @@
     "uncoveredGutterStyle": "slashyellow"
   },
   "go.installDependenciesWhenBuilding": true,
-  "go.useLanguageServer": false,
+  "gopls": {
+    "formatting.local": "github.com/HykoAPI/gocodebase"
+  },
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.validate.enable": false,
   "problems.decorations.enabled": false,
