@@ -1,62 +1,12 @@
 {{- if eq .chezmoi.os "darwin" -}}
-#!/bin/bash
+#!/usr/bin/env bash
+
+# Brewfile hash: {{ include "lib/Brewfile" | sha256sum }}
 
 if ! command -v brew &> /dev/null
 then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-brew bundle --quiet --no-lock --file=/dev/stdin <<EOF
-tap "heroku/brew"
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-drivers"
-tap "homebrew/core"
-brew "ansible"
-brew "bat"
-brew "coreutils"
-brew "diff-so-fancy"
-brew "dog"
-brew "dust"
-brew "entr"
-brew "fd"
-brew "ffmpeg"
-brew "fzf"
-brew "gh"
-brew "gifsicle"
-brew "git"
-brew "git-delta"
-brew "git-lfs"
-brew "gitui"
-brew "gnupg"
-brew "go"
-brew "heroku/brew/heroku"
-brew "htop"
-brew "httpie"
-brew "hub"
-brew "hugo"
-brew "imagemagick"
-brew "jpegoptim"
-brew "jq"
-brew "k9s"
-brew "kubernetes-cli"
-brew "micro"
-brew "moreutils"
-brew "nvm"
-brew "prettyping"
-brew "pv"
-brew "rclone"
-brew "ripgrep"
-brew "rsync"
-brew "semgrep"
-brew "sqlite"
-brew "starship"
-brew "tree"
-brew "watch"
-brew "wget"
-brew "yamllint"
-brew "yarn"
-brew "yq"
-brew "zsh"
-EOF
+brew bundle --quiet --no-lock --file={{ joinPath .chezmoi.sourceDir "lib/Brewfile" | quote }}
 {{ end -}}

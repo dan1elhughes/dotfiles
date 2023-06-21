@@ -1,5 +1,6 @@
 install.sh
 README.md
+/lib/
 
 {{ if ne .chezmoi.os "darwin" }}
 Library/private_Application Support/private_Code/User/settings.json.tmpl
