@@ -1,4 +1,12 @@
-plugins=(git kubectl zsh-autosuggestions brew zsh-z)
+plugins=(
+  brew
+  docker
+  docker-compose
+  git
+  kubectl
+  zsh-autosuggestions
+  zsh-z
+)
 
 export ZSH="/Users/danhughes/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
