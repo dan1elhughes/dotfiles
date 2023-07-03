@@ -54,41 +54,44 @@
   "emmet.showExpandedAbbreviation": "never",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "explorer.openEditors.visible": 0,
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-  "go.coverOnSave": true,
-  "go.coverOnSingleTest": true,
   "go.coverageDecorator": {
-    "type": "gutter",
     "coveredGutterStyle": "blockblue",
+    "type": "gutter",
     "uncoveredGutterStyle": "slashyellow"
   },
+  "go.coverOnSave": true,
+  "go.coverOnSingleTest": true,
   "go.installDependenciesWhenBuilding": true,
   "gopls": {
     "formatting.local": "github.com/HykoAPI/gocodebase"
   },
+  "javascript.preferGoToSourceDefinition": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.validate.enable": false,
   "problems.decorations.enabled": false,
   "rewrap.autoWrap.enabled": true,
   "search.exclude": {
-    "**/node_modules": true,
-    "**.rule": true
+    "**.rule": true,
+    "**/node_modules": true
   },
   "search.useIgnoreFiles": true,
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.fontSize": 16,
   "todohighlight.keywords": [
     {
-      "text": "t.Skip()",
-      "color": "#fff",
       "backgroundColor": "#600",
-      "overviewRulerColor": "#F00",
       "border": "1px solid #600",
       "borderRadius": "3px",
-      "isWholeLine": true
+      "color": "#fff",
+      "isWholeLine": true,
+      "overviewRulerColor": "#F00",
+      "text": "t.Skip()"
     }
   ],
+  "typescript.preferGoToSourceDefinition": true,
   "window.restoreWindows": "none",
   "workbench.activityBar.visible": false,
   "workbench.colorTheme": "Ayu Mirage",
@@ -98,8 +101,5 @@
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": false,
   "zenMode.centerLayout": false,
-  "zenMode.fullScreen": false,
-  "explorer.openEditors.visible": 0,
-  "javascript.preferGoToSourceDefinition": true,
-  "typescript.preferGoToSourceDefinition": true
+  "zenMode.fullScreen": false
 }
