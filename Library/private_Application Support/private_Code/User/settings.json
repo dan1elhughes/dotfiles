@@ -99,5 +99,7 @@
   "workbench.statusBar.visible": false,
   "zenMode.centerLayout": false,
   "zenMode.fullScreen": false,
-  "explorer.openEditors.visible": 0
+  "explorer.openEditors.visible": 0,
+  "javascript.preferGoToSourceDefinition": true,
+  "typescript.preferGoToSourceDefinition": true
 }
