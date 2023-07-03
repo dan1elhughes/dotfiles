@@ -5,7 +5,7 @@ watchtests() {
         return 1
     fi
     if ! command -v entr &> /dev/null; then
-        echo "fd not installed"
+        echo "entr not installed"
         return 1
     fi
 
@@ -19,7 +19,7 @@ watchbuild() {
         return 1
     fi
     if ! command -v entr &> /dev/null; then
-        echo "fd not installed"
+        echo "entr not installed"
         return 1
     fi
 
