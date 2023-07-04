@@ -54,7 +54,6 @@
   "emmet.showExpandedAbbreviation": "never",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "explorer.openEditors.visible": 0,
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "go.coverageDecorator": {
@@ -65,6 +64,8 @@
   "go.coverOnSave": true,
   "go.coverOnSingleTest": true,
   "go.installDependenciesWhenBuilding": true,
+  "go.lintFlags": ["--fast"],
+  "go.lintTool": "golangci-lint",
   "gopls": {
     "formatting.local": "github.com/HykoAPI/gocodebase"
   },
