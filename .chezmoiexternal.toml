@@ -28,3 +28,8 @@
     exact = true
     url = "https://github.com/adobe-fonts/source-code-pro"
     refreshPeriod = "168h"
+["Library/Fonts/BorgSansMono"]
+    type = "archive"
+    exact = true
+    url = "https://github.com/marnen/borg-sans-mono/files/107663/BorgSansMono.ttf.zip"
+    refreshPeriod = "168h"
