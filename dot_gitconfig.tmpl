@@ -53,5 +53,6 @@
     up = "!f() { git fetch origin $1:$1; }; f"
     ignore = "!f() { curl -sSL \"gitignore.io/api/$@\"; }; f"
     compare = "!f() { gh pr create -w; }; f"
+    yeet = "!f() { git push sandbox `git rev-parse --abbrev-ref HEAD`:master --force-with-lease; }; f"
 [init]
     defaultBranch = master
