@@ -102,5 +102,7 @@
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": false,
   "zenMode.centerLayout": false,
-  "zenMode.fullScreen": false
+  "zenMode.fullScreen": false,
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false
 }
