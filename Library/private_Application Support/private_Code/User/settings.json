@@ -5,12 +5,6 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[proto3]": {
-    "editor.formatOnSave": false
-  },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -19,8 +13,8 @@
   },
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.fontFamily": "BorgSansMono, monospace",
-  "editor.fontLigatures": true,
+  "editor.fontFamily": "'Monaspace Argon', monospace",
+  "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'calt', 'dlig'",
   "editor.fontSize": 18,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
@@ -34,23 +28,6 @@
   "editor.overviewRulerBorder": false,
   "editor.quickSuggestionsDelay": 500,
   "editor.renderLineHighlight": "none",
-  "editor.tokenColorCustomizations": {
-    "textMateRules": [
-      {
-        "scope": [
-          "keyword.control",
-          "keyword",
-          "storage.modifier",
-          "storage.type",
-          "storage",
-          "variable.language"
-        ],
-        "settings": {
-          "fontStyle": "italic"
-        }
-      }
-    ]
-  },
   "emmet.showExpandedAbbreviation": "never",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
@@ -66,18 +43,11 @@
   "go.installDependenciesWhenBuilding": true,
   "go.lintFlags": ["--fast"],
   "go.lintTool": "golangci-lint",
-  "gopls": {
-    "formatting.local": "github.com/HykoAPI/gocodebase"
-  },
   "javascript.preferGoToSourceDefinition": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.validate.enable": false,
   "problems.decorations.enabled": false,
   "rewrap.autoWrap.enabled": true,
-  "search.exclude": {
-    "**.rule": true,
-    "**/node_modules": true
-  },
   "search.useIgnoreFiles": true,
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.fontSize": 16,
@@ -94,7 +64,6 @@
   ],
   "typescript.preferGoToSourceDefinition": true,
   "window.restoreWindows": "none",
-  "workbench.activityBar.visible": false,
   "workbench.colorTheme": "Ayu Mirage",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.showIcons": false,
@@ -104,5 +73,6 @@
   "zenMode.centerLayout": false,
   "zenMode.fullScreen": false,
   "window.commandCenter": false,
-  "workbench.layoutControl.enabled": false
+  "workbench.layoutControl.enabled": false,
+  "workbench.activityBar.location": "hidden"
 }

@@ -1,35 +1,47 @@
 [".oh-my-zsh"]
-    type = "git-repo"
-    exact = true
-    url = "https://github.com/ohmyzsh/ohmyzsh.git"
-    refreshPeriod = "168h"
+type = "git-repo"
+exact = true
+url = "https://github.com/ohmyzsh/ohmyzsh.git"
+refreshPeriod = "168h"
+
 [".oh-my-zsh/custom/plugins/zsh-z"]
-    type = "git-repo"
-    exact = true
-    url = "https://github.com/agkozak/zsh-z"
-    refreshPeriod = "168h"
+type = "git-repo"
+exact = true
+url = "https://github.com/agkozak/zsh-z"
+refreshPeriod = "168h"
+
 [".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
-    type = "git-repo"
-    exact = true
-    url = "https://github.com/zsh-users/zsh-autosuggestions"
-    refreshPeriod = "168h"
+type = "git-repo"
+exact = true
+url = "https://github.com/zsh-users/zsh-autosuggestions"
+refreshPeriod = "168h"
+
 ["Library/Fonts/FiraCodeNerdFont"]
-    type = "archive"
-    exact = true
-    url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
-    refreshPeriod = "168h"
+type = "archive"
+exact = true
+url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
+refreshPeriod = "168h"
+
 ["Library/Fonts/IntelOneMono"]
-    type = "archive"
-    exact = true
-    url = "https://github.com/intel/intel-one-mono/releases/latest/download/ttf.zip"
-    refreshPeriod = "168h"
+type = "archive"
+exact = true
+url = "https://github.com/intel/intel-one-mono/releases/latest/download/ttf.zip"
+refreshPeriod = "168h"
+
 ["Library/Fonts/SourceCodePro"]
-    type = "git-repo"
-    exact = true
-    url = "https://github.com/adobe-fonts/source-code-pro"
-    refreshPeriod = "168h"
+type = "git-repo"
+exact = true
+url = "https://github.com/adobe-fonts/source-code-pro"
+refreshPeriod = "168h"
+
 ["Library/Fonts/BorgSansMono"]
-    type = "archive"
-    exact = true
-    url = "https://github.com/marnen/borg-sans-mono/files/107663/BorgSansMono.ttf.zip"
-    refreshPeriod = "168h"
+type = "archive"
+exact = true
+url = "https://github.com/marnen/borg-sans-mono/files/107663/BorgSansMono.ttf.zip"
+refreshPeriod = "168h"
+
+["Library/Fonts/Monaspace"]
+type = "git-repo"
+exact = true
+url = "https://github.com/githubnext/monaspace"
+refreshPeriod = "168h"
