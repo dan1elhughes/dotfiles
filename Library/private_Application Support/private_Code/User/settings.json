@@ -11,6 +11,23 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "apc.electron": {
+    "titleBarStyle": "hiddenInset",
+    "trafficLightPosition": {
+      "x": 11,
+      "y": 10
+    }
+  },
+  "apc.header": {
+    "height": 36
+  },
+  // Remove unnecessary controls from primary bar and tabs list
+  "apc.stylesheet": {
+    ".editor-actions": "display: none", // Remove editor action icons
+    ".nosidebar .inline-tabs-placeholder": "width: 75px", // Align tabs to not overlap window controls when primary bar is hidden
+    ".title-actions": "display: none", // Remove primary side bar action icons
+    ".title-label > h2": "display: none" // Remove primary side bar title
+  },
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.fontFamily": "'Twilio Sans Mono', monospace",
@@ -24,7 +41,7 @@
   "editor.lineHeight": 34,
   "editor.lineNumbers": "interval",
   "editor.minimap.enabled": false,
-  "editor.occurrencesHighlight": false,
+  "editor.occurrencesHighlight": "off",
   "editor.overviewRulerBorder": false,
   "editor.quickSuggestionsDelay": 500,
   "editor.renderLineHighlight": "none",
@@ -41,7 +58,9 @@
   "go.coverOnSave": true,
   "go.coverOnSingleTest": true,
   "go.installDependenciesWhenBuilding": true,
-  "go.lintFlags": ["--fast"],
+  "go.lintFlags": [
+    "--fast"
+  ],
   "go.lintTool": "golangci-lint",
   "javascript.preferGoToSourceDefinition": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
@@ -63,16 +82,16 @@
     }
   ],
   "typescript.preferGoToSourceDefinition": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "window.commandCenter": false,
   "window.restoreWindows": "none",
+  "window.titleBarStyle": "native",
+  "workbench.activityBar.location": "hidden",
   "workbench.colorTheme": "Ayu Mirage",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.showIcons": false,
   "workbench.iconTheme": "ayu",
+  "workbench.layoutControl.enabled": false,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": false,
-  "zenMode.centerLayout": false,
-  "zenMode.fullScreen": false,
-  "window.commandCenter": false,
-  "workbench.layoutControl.enabled": false,
-  "workbench.activityBar.location": "hidden"
 }
