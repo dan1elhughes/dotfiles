@@ -12,15 +12,13 @@ function copypr() {
     echo "✅ Pull request copied to clipboard in Slack format."
 }
 
-function waitmerge() {
+function watchchecks() {
     pr=$1
 
-    gh pr merge $1 --squash --delete-branch > /dev/null 2>&1
-    while [ $? -ne 0 ]; do
-        echo -n "."
-        sleep 5
-        gh pr merge $1 --squash --delete-branch > /dev/null 2>&1
-    done
+    content=$(gh pr view $1 --json title)
+    title=$(echo $content | jq -r '.title')
 
-    echo
+    gh pr checks --watch $1
+
+    osascript -e "display notification \"$title\" with title \"PR checks done\""
 }
