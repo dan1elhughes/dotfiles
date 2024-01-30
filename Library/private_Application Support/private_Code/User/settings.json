@@ -58,9 +58,7 @@
   "go.coverOnSave": true,
   "go.coverOnSingleTest": true,
   "go.installDependenciesWhenBuilding": true,
-  "go.lintFlags": [
-    "--fast"
-  ],
+  "go.lintFlags": ["--fast"],
   "go.lintTool": "golangci-lint",
   "javascript.preferGoToSourceDefinition": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
