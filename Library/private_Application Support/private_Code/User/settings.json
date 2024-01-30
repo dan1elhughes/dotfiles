@@ -94,4 +94,6 @@
   "workbench.layoutControl.enabled": false,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": false,
+  "editor.stickyScroll.enabled": true,
+  "editor.stickyScroll.defaultModel": "foldingProviderModel"
 }
