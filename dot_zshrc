@@ -9,7 +9,6 @@ plugins=(
   git
   kubectl
   zsh-autosuggestions
-  zsh-z
 )
 
 export ZSH="/Users/danhughes/.oh-my-zsh"
@@ -31,3 +30,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
