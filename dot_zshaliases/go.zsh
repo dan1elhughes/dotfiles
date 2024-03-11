@@ -9,7 +9,7 @@ watchtests() {
         return 1
     fi
 
-    fd -e go | entr -c sh -c "go test -short ./... && echo ✅ || echo ❌"
+    fd -e go | entr -c sh -c "go test -short -p=1 ./... && echo ✅ || echo ❌"
 }
 
 # Watch all files for changes, and build when they change.
