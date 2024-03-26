@@ -15,10 +15,7 @@ function fedit() {
 
 # Find and checkout git branch.
 function fcheckout() {
-    branches=$(git branch --format='%(refname:short)')
-    selected=$(echo $branches | fzf --preview 'git log --oneline master..{}')
-    [ -z "$selected" ] && exit
-    git checkout "$selected"
+    git checkout $(git branch --sort="-committerdate" | fzf)
 }
 
 function fcd() {
