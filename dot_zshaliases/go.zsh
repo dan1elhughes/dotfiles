@@ -12,6 +12,25 @@ watchtests() {
     fd -e go | entr -c sh -c "go test -short -p=1 ./... && echo ✅ || echo ❌"
 }
 
+watchtest() {
+    if ! command -v fd &> /dev/null; then
+        echo "fd not installed"
+        return 1
+    fi
+    if ! command -v entr &> /dev/null; then
+        echo "entr not installed"
+        return 1
+    fi
+
+    testName=$1
+    if [ -z "$testName" ]; then
+        echo "Usage: watchtest <testName>"
+        return 1
+    fi
+
+    fd -e go | entr -c sh -c "go test ./... -short -p=1 -run $testName && echo ✅ || echo ❌"
+}
+
 # Watch all files for changes, and build when they change.
 watchbuild() {
     if ! command -v fd &> /dev/null; then
