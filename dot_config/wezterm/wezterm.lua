@@ -17,4 +17,17 @@ config.window_frame = {
   font = wezterm.font({ family = 'Twilio Sans Mono', weight = 'Bold' }),
 }
 
+config.keys = {
+  {
+    key = 'd',
+    mods = 'SUPER|SHIFT',
+    action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+  },
+  {
+    key = 'd',
+    mods = 'SUPER',
+    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+}
+
 return config
