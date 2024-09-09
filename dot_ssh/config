@@ -6,8 +6,8 @@ Host rocinante
 	HostName 100.72.123.112
 	User dan
 
-Host speckle
-	HostName 100.116.144.74
+Host eden
+	HostName 100.77.5.5
 	User dan
 
 Host tycho
