@@ -4,6 +4,8 @@
     signingkey = "{{ .gitsigningkey }}"
 [includeIf "gitdir:~/src/github.com/HykoAPI/"]
     path = ~/.work.gitconfig
+[includeIf "gitdir:~/src/github.com/tideplatform/"]
+    path = ~/.work.gitconfig
 [gpg]
     format = ssh
 [gpg "ssh"]
