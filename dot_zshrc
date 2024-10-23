@@ -7,11 +7,10 @@ plugins=(
   docker
   docker-compose
   git
-  kubectl
   zsh-autosuggestions
 )
 
-export ZSH="/Users/danhughes/.oh-my-zsh"
+export ZSH="/Users/$USER/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
 # Managed by chezmoiexternal.
