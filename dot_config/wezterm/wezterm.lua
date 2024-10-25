@@ -8,6 +8,8 @@ else
   config.color_scheme = 'Ayu Light (Gogh)'
 end
 
+config.window_close_confirmation = 'NeverPrompt'
+
 config.font_size = 18
 config.font = wezterm.font({ family = 'Twilio Sans Mono' })
 config.line_height = 1.2
