@@ -1,23 +1,28 @@
 [user]
     name = "Dan Hughes"
     email = "{{ .persemail }}"
+{{ if .gitsigningkey }}
     signingkey = "{{ .gitsigningkey }}"
+{{ end }}
 [includeIf "gitdir:~/src/github.com/HykoAPI/"]
     path = ~/.work.gitconfig
 [includeIf "gitdir:~/src/github.com/tideplatform/"]
     path = ~/.work.gitconfig
+{{ if .gitsigningkey }}
+    signingkey = "{{ .gitsigningkey }}"
 [gpg]
     format = ssh
 [gpg "ssh"]
     allowedSignersFile = ~/.ssh/allowed_signers
     program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+{{ end }}
+[commit]
+    gpgsign = true
 [push]
     default = current
     autoSetupRemote = true
 [branch]
     autosetuprebase = always
-[commit]
-    gpgsign = true
 [fetch]
     prune = true
 [core]

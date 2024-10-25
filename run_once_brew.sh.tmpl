@@ -1,12 +1,19 @@
 {{- if eq .chezmoi.os "darwin" -}}
 #!/usr/bin/env bash
 
-# Brewfile hash: {{ include "lib/Brewfile" | sha256sum }}
-
 if ! command -v brew &> /dev/null
 then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-brew bundle --quiet --no-lock --file={{ joinPath .chezmoi.sourceDir "lib/Brewfile" | quote }}
+{{ if .installDesktop }}
+# Brewfile-desktop hash: {{ include "lib/Brewfile-desktop" | sha256sum }}
+brew bundle --quiet --no-lock --file={{ joinPath .chezmoi.sourceDir "lib/Brewfile-desktop" | quote }}
+{{ end }}
+
+{{ if .installDev }}
+# Brewfile-dev hash: {{ include "lib/Brewfile-dev" | sha256sum }}
+brew bundle --quiet --no-lock --file={{ joinPath .chezmoi.sourceDir "lib/Brewfile-dev" | quote }}
+{{ end }}
+
 {{ end -}}

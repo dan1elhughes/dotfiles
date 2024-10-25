@@ -1,10 +1,14 @@
 {{- $persemail := promptStringOnce . "persemail" "Personal email address" -}}
 {{- $workemail := promptStringOnce . "workemail" "Work email address" -}}
-{{- $gitsigningkey := promptStringOnce . "gitsigningkey" "Git signing key" -}}
+{{- $gitsigningkey := promptStringOnce . "gitsigningkey" "1Password git signing key" -}}
+{{- $installDev := promptBoolOnce . "installDev" "Install developer tooling (VSCode, golang, Docker etc)?" -}}
+{{- $installDesktop := promptBoolOnce . "installDesktop" "Install desktop apps (Raycast, Spotify, Slack etc)?" -}}
 
 [data]
     persemail = {{ $persemail | quote }}
     workemail = {{ $workemail | quote }}
     gitsigningkey = {{ $gitsigningkey | quote }}
+    installDev = {{ $installDev }}
+    installDesktop = {{ $installDesktop }}
 [diff]
     exclude = ["externals"]
