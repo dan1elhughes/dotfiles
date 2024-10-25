@@ -1,8 +1,9 @@
-{{- $persemail := promptStringOnce . "persemail" "Personal email address" -}}
+{{- $persemail := promptStringOnce . "persemail" "Personal email address" "github@danhughes.dev" -}}
 {{- $workemail := promptStringOnce . "workemail" "Work email address" -}}
-{{- $gitsigningkey := promptStringOnce . "gitsigningkey" "1Password git signing key" -}}
-{{- $installDev := promptBoolOnce . "installDev" "Install developer tooling (VSCode, golang, Docker etc)?" -}}
-{{- $installDesktop := promptBoolOnce . "installDesktop" "Install desktop apps (Raycast, Spotify, Slack etc)?" -}}
+{{- $gitsigningkey := promptStringOnce . "gitsigningkey" "1Password git signing key (leave empty to disable signing)" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKFfB1MJMVHebVDoYMkhA+GNmgEngOW7WvcLeSL3uhxK" -}}
+{{- $installDev := promptBoolOnce . "installDev" "Install developer tooling (VSCode, golang, Docker etc)?" true -}}
+{{- $installDesktop := promptBoolOnce . "installDesktop" "Install desktop apps (Raycast, Spotify, Slack etc)?" true -}}
+{{- $resetDock := promptBoolOnce . "resetDock" "Reset dock (Unpin all, auto-hide)?" true -}}
 
 [data]
     persemail = {{ $persemail | quote }}
@@ -10,5 +11,6 @@
     gitsigningkey = {{ $gitsigningkey | quote }}
     installDev = {{ $installDev }}
     installDesktop = {{ $installDesktop }}
+    resetDock = {{ $resetDock }}
 [diff]
     exclude = ["externals"]

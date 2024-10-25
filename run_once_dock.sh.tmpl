@@ -1,0 +1,9 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+
+{{ if .resetDock }}
+m dock prune
+m dock autohide YES
+{{ end }}
+
+{{ end -}}

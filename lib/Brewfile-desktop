@@ -1,3 +1,4 @@
+brew "m-cli"
 cask "fantastical"
 cask "fork"
 cask "firefox"
