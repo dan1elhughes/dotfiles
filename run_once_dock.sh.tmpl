@@ -2,8 +2,18 @@
 #!/usr/bin/env bash
 
 {{ if .resetDock }}
+# Empty dock
 m dock prune
+
+# Enable auto-hide
 m dock autohide YES
+
+# Mute startup sound
+sudo nvram StartupMute=%01
+
+# Set main colour to grey
+m appearance maincolor graphite
+
 {{ end }}
 
 {{ end -}}
