@@ -9,15 +9,14 @@
 [includeIf "gitdir:~/src/github.com/tideplatform/"]
     path = ~/.work.gitconfig
 {{ if .gitsigningkey }}
-    signingkey = "{{ .gitsigningkey }}"
 [gpg]
     format = ssh
 [gpg "ssh"]
     allowedSignersFile = ~/.ssh/allowed_signers
     program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-{{ end }}
 [commit]
     gpgsign = true
+{{ end }}
 [push]
     default = current
     autoSetupRemote = true
