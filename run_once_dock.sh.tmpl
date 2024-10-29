@@ -13,6 +13,9 @@ sudo nvram StartupMute=%01
 
 # Set main colour to grey
 m appearance maincolor graphite
+
+# Set theme to auto
+defaults write -g AppleInterfaceStyleSwitchesAutomatically -bool true
 {{ end }}
 
 {{ if .setwallpaper }}
