@@ -13,7 +13,11 @@ sudo nvram StartupMute=%01
 
 # Set main colour to grey
 m appearance maincolor graphite
+{{ end }}
 
+{{ if .setwallpaper }}
+wget -O $HOME/Pictures/wallpaper.jpeg https://danhughes.dev/wallpaper
+m wallpaper $HOME/Pictures/wallpaper.jpeg
 {{ end }}
 
 {{ end -}}
