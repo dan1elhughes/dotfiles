@@ -8,12 +8,12 @@ fi
 
 {{ if .installDesktop }}
 # Brewfile-desktop hash: {{ include "lib/Brewfile-desktop" | sha256sum }}
-brew bundle --quiet --no-lock --file={{ joinPath .chezmoi.sourceDir "lib/Brewfile-desktop" | quote }}
+brew bundle --quiet --no-lock --file={{ joinPath .chezmoi.sourceDir "lib/Brewfile-desktop" | quote }} || true
 {{ end }}
 
 {{ if .installDev }}
 # Brewfile-dev hash: {{ include "lib/Brewfile-dev" | sha256sum }}
-brew bundle --quiet --no-lock --file={{ joinPath .chezmoi.sourceDir "lib/Brewfile-dev" | quote }}
+brew bundle --quiet --no-lock --file={{ joinPath .chezmoi.sourceDir "lib/Brewfile-dev" | quote }} || true
 {{ end }}
 
 {{ end -}}
