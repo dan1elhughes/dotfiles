@@ -5,6 +5,7 @@
 {{- $installDesktop := promptBoolOnce . "installDesktop" "Install desktop apps (Raycast, Spotify, Slack etc)" true -}}
 {{- $resetDock := promptBoolOnce . "resetDock" "Reset dock (Unpin all, auto-hide)" true -}}
 {{- $setwallpaper := promptBoolOnce . "setWallpaper" "Set wallpaper" true -}}
+{{- $sudoTouchID := promptBoolOnce . "sudoTouchID" "Use TouchID for sudo" true -}}
 
 [data]
     persemail = {{ $persemail | quote }}
@@ -14,5 +15,6 @@
     installDesktop = {{ $installDesktop }}
     resetDock = {{ $resetDock }}
     setwallpaper = {{ $setwallpaper }}
+    sudoTouchID = {{ $sudoTouchID }}
 [diff]
     exclude = ["externals"]
