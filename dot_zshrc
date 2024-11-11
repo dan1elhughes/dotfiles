@@ -10,10 +10,11 @@ plugins=(
   zsh-autosuggestions
 )
 
+# Disable oh-my-zsh updater, as it's managed by chezmoiexternal.
+DISABLE_AUTO_UPDATE="true"
+
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
-# Managed by chezmoiexternal.
-DISABLE_AUTO_UPDATE="true"
 
 for file in $HOME/.zshaliases/* ; do
   if [ -f "$file" ] ; then
