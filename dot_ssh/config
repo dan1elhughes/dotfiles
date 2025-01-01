@@ -14,8 +14,8 @@ Host tycho
 	HostName 100.111.157.79
 	User pi
 
-Host raspberrypi.local
-	User pi
-
 Host *
 	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
+Host 10.10.10.20
+    StrictHostKeyChecking no
