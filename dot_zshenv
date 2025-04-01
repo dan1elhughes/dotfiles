@@ -4,7 +4,9 @@
 # produce output or assume the shell is attached to a tty.
 
 export GOPATH=$HOME
+export STACKPR_CONFIG="$HOME/.config/stack-pr/stack-pr.cfg"
 
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/opt/go/bin:$PATH"
