@@ -22,3 +22,7 @@ function watchchecks() {
 
     osascript -e "display notification \"$title\" with title \"PR checks done\""
 }
+
+function sendit() {
+    gp -u && gh pr create --fill && gh pr merge --squash --auto
+}
