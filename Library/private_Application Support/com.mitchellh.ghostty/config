@@ -1,4 +1,4 @@
 font-size = 18
 font-family = Twilio Sans Mono
-theme = Ayu Mirage
+theme = dark:Ayu Mirage,light:ayu_light
 quit-after-last-window-closed = true
