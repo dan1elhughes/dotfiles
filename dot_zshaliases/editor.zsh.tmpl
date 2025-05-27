@@ -1,0 +1,7 @@
+{{ if .cursorInsteadOfCode }}
+export VISUAL_EDITOR="cursor --wait"
+export EDITOR="cursor --wait"
+{{ else }}
+export VISUAL_EDITOR="code --wait"
+export EDITOR="code --wait"
+{{ end }}

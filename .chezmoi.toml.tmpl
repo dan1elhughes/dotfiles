@@ -6,6 +6,7 @@
 {{- $resetDock := promptBoolOnce . "resetDock" "Reset dock (Unpin all, auto-hide)" true -}}
 {{- $setwallpaper := promptBoolOnce . "setWallpaper" "Set wallpaper" true -}}
 {{- $sudoTouchID := promptBoolOnce . "sudoTouchID" "Use TouchID for sudo" true -}}
+{{- $cursorInsteadOfCode := promptBoolOnce . "cursorInsteadOfCode" "Use Cursor instead of VSCode" true -}}
 
 [data]
     persemail = {{ $persemail | quote }}
@@ -16,5 +17,6 @@
     resetDock = {{ $resetDock }}
     setwallpaper = {{ $setwallpaper }}
     sudoTouchID = {{ $sudoTouchID }}
+    cursorInsteadOfCode = {{ $cursorInsteadOfCode }}
 [diff]
     exclude = ["externals"]
