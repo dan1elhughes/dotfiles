@@ -9,7 +9,16 @@ watchtests() {
         return 1
     fi
 
-    fd -e go | entr -c sh -c "go test -short -p=1 ./... && echo ✅ || echo ❌"
+    # Find the closest .env upwards
+	envfile=$(pwd)
+	while [ "$envfile" != "/" ]; do
+		if [ -f "$envfile/.env" ]; then
+			break
+		fi
+		envfile=$(dirname "$envfile")
+	done
+
+    fd -e go | entr -c sh -c "set -a; [ -f $envfile/.env.local ] && source $envfile/.env.local; go test -short -p=1 ./... && echo ✅ || echo ❌"
 }
 
 watchtest() {
@@ -22,13 +31,22 @@ watchtest() {
         return 1
     fi
 
+    # Find the closest .env upwards
+	envfile=$(pwd)
+	while [ "$envfile" != "/" ]; do
+		if [ -f "$envfile/.env" ]; then
+			break
+		fi
+		envfile=$(dirname "$envfile")
+	done
+
     testName=$1
     if [ -z "$testName" ]; then
         echo "Usage: watchtest <testName>"
         return 1
     fi
 
-    fd -e go | entr -c sh -c "go test ./... -short -p=1 -run $testName && echo ✅ || echo ❌"
+    fd -e go | entr -c sh -c "set -a; [ -f $envfile/.env.local ] && source $envfile/.env.local; go test ./... -short -p=1 -run $testName && echo ✅ || echo ❌"
 }
 
 # Watch all files for changes, and build when they change.
