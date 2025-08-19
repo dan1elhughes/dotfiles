@@ -18,7 +18,7 @@ watchtests() {
 		envfile=$(dirname "$envfile")
 	done
 
-    fd -e go | entr -c sh -c "set -a; [ -f $envfile/.env.local ] && source $envfile/.env.local; go test -short -p=1 ./... && echo ✅ || echo ❌"
+    fd -e go | entr -c sh -c "set -a; [ -f $envfile/.env ] && source $envfile/.env; go test -short -p=1 ./... && echo ✅ || echo ❌"
 }
 
 watchtest() {
@@ -46,7 +46,7 @@ watchtest() {
         return 1
     fi
 
-    fd -e go | entr -c sh -c "set -a; [ -f $envfile/.env.local ] && source $envfile/.env.local; go test ./... -short -p=1 -run $testName && echo ✅ || echo ❌"
+    fd -e go | entr -c sh -c "set -a; [ -f $envfile/.env ] && source $envfile/.env; go test ./... -short -p=1 -run $testName && echo ✅ || echo ❌"
 }
 
 # Watch all files for changes, and build when they change.
