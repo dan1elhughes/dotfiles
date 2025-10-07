@@ -1,0 +1,1 @@
+{"Name":"swarm","Metadata":{},"Endpoints":{"docker":{"Host":"ssh://10.10.10.20","SkipTLSVerify":false}}}
