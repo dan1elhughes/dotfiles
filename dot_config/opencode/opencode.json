@@ -6,7 +6,8 @@
       "prompt": "{file:prompts/plan.txt}"
     },
     "build": {
-      "model": "opencode/gemini-3-flash"
+      "model": "opencode/gemini-3-flash",
+      "prompt": "{file:prompts/build.txt}"
     }
   }
 }
