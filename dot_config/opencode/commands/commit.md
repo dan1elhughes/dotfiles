@@ -1,0 +1,14 @@
+---
+description: Commit staged changes following project conventions
+model: opencode/claude-haiku-4-5
+---
+
+Review the diff, and create a git commit for any changes.
+
+Last ten commits:
+
+!`git log --oneline -10`
+
+Analyze these messages to ensure your new commit message follows the project's conventions (e.g. format, tense, capitalization).
+
+Then, create the commit with the generated message.
