@@ -1,0 +1,13 @@
+---
+description: Create a draft PR and open it in the browser
+model: {{ if .useCursorModels }}cursor/composer-1{{ else }}opencode/claude-haiku-4-5{{ end }}
+---
+
+Create a draft pull request using the GitHub CLI and then open it in your web browser.
+
+Steps:
+1. Check the current git status and branch
+2. Create a draft PR using `gh pr create --draft`
+3. Open the PR in your browser using `gh pr view --web`
+
+The command should handle the PR creation and browser opening automatically.
