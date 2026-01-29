@@ -1,3 +1,11 @@
 {
-  "$schema": "https://opencode.ai/config.json"
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "yet-another-opencode-cursor-auth"
+  ],
+  "provider": {
+    "cursor": {
+      "name": "Cursor"
+    }
+  }
 }

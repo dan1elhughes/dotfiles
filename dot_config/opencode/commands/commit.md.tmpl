@@ -1,6 +1,6 @@
 ---
 description: Commit staged changes following project conventions
-model: opencode/claude-haiku-4-5
+model: {{ if .useCursorModels }}cursor/composer-1{{ else }}opencode/claude-haiku-4-5{{ end }}
 ---
 
 Review the diff, and create a git commit for any changes.
