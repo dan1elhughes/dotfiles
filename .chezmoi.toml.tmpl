@@ -6,7 +6,7 @@
 {{- $resetDock := promptBoolOnce . "resetDock" "Reset dock (Unpin all, auto-hide)" true -}}
 {{- $setwallpaper := promptBoolOnce . "setWallpaper" "Set wallpaper" true -}}
 {{- $sudoTouchID := promptBoolOnce . "sudoTouchID" "Use TouchID for sudo" true -}}
-{{- $useCursorModels := promptBoolOnce . "useCursorModels" "Use Cursor models for Plan and Build agents" true -}}
+{{- $useCursorModels := promptBoolOnce . "useCursorModels" "Use Google models instead of opencode models" true -}}
 
 [data]
     persemail = {{ $persemail | quote }}

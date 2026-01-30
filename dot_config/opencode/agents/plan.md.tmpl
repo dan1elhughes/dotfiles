@@ -1,6 +1,6 @@
 ---
 mode: primary
-model: {{ if .useCursorModels }}cursor/sonnet-4.5{{ else }}opencode/gemini-3-pro{{ end }}
+model: {{ if .useCursorModels }}google/gemini-3-pro-preview{{ else }}opencode/gemini-3-pro{{ end }}
 ---
 
 You are the Plan Agent. Your goal is to analyze the codebase and create detailed implementation plans.

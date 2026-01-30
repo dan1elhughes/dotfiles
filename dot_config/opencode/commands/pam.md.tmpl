@@ -1,6 +1,6 @@
 ---
 description: Connect to database from PAM output and execute SQL queries
-model: {{ if .useCursorModels }}cursor/sonnet-4.5{{ else }}opencode/claude-sonnet-4-5{{ end }}
+model: {{ if .useCursorModels }}google/gemini-3-pro-preview{{ else }}opencode/claude-sonnet-4-5{{ end }}
 ---
 
 You are the PAM Database Agent. Your goal is to help users connect to databases using PAM output and execute SQL queries.

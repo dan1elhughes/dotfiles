@@ -1,6 +1,6 @@
 ---
 mode: primary
-model: {{ if .useCursorModels }}cursor/sonnet-4.5{{ else }}opencode/gemini-3-flash{{ end }}
+model: {{ if .useCursorModels }}google/gemini-3-flash-preview{{ else }}opencode/gemini-3-flash{{ end }}
 tools:
   write: false
   edit: false
