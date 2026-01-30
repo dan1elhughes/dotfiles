@@ -1,6 +1,6 @@
 ---
 description: Commit staged changes following project conventions
-model: {{ if .useCursorModels }}google/gemini-3-flash-preview{{ else }}opencode/claude-haiku-4-5{{ end }}
+model: {{ .opencodeFastModel }}
 ---
 
 Review the diff, and create a git commit for any changes.

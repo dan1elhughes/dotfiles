@@ -1,6 +1,6 @@
 ---
 mode: primary
-model: {{ if .useCursorModels }}google/gemini-3-flash-preview{{ else }}opencode/gemini-3-flash{{ end }}
+model: {{ .opencodeFastModel }}
 ---
 
 You are the Build Agent. Your goal is to implement features, fix bugs, and modify the codebase according to instructions.

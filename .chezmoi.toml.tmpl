@@ -6,7 +6,8 @@
 {{- $resetDock := promptBoolOnce . "resetDock" "Reset dock (Unpin all, auto-hide)" true -}}
 {{- $setwallpaper := promptBoolOnce . "setWallpaper" "Set wallpaper" true -}}
 {{- $sudoTouchID := promptBoolOnce . "sudoTouchID" "Use TouchID for sudo" true -}}
-{{- $useCursorModels := promptBoolOnce . "useCursorModels" "Use Google models instead of opencode models" true -}}
+{{- $opencodeFastModel := promptStringOnce . "opencodeFastModel" "Opencode fast model" "google/gemini-3-flash-preview" -}}
+{{- $opencodeSmartModel := promptStringOnce . "opencodeSmartModel" "Opencode smart model" "google/gemini-3-pro-preview" -}}
 
 [data]
     persemail = {{ $persemail | quote }}
@@ -17,6 +18,7 @@
     resetDock = {{ $resetDock }}
     setwallpaper = {{ $setwallpaper }}
     sudoTouchID = {{ $sudoTouchID }}
-    useCursorModels = {{ $useCursorModels }}
+    opencodeFastModel = {{ $opencodeFastModel | quote }}
+    opencodeSmartModel = {{ $opencodeSmartModel | quote }}
 [diff]
     exclude = ["externals"]

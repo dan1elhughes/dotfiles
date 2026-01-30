@@ -1,6 +1,6 @@
 ---
 mode: primary
-model: {{ if .useCursorModels }}google/gemini-3-flash-preview{{ else }}opencode/gemini-3-flash{{ end }}
+model: {{ .opencodeFastModel }}
 tools:
   write: false
   edit: false
