@@ -12,5 +12,5 @@ function g() {
 }
 
 function gcai() {
-	opencode run /commit
+	opencode run /commit "$@"
 }
