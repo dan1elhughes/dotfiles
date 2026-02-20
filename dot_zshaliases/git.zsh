@@ -10,3 +10,7 @@ function g() {
 		git "$@"
 	fi
 }
+
+function gcai() {
+	opencode run /commit
+}
