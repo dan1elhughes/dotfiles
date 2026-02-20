@@ -2,20 +2,14 @@
 description: Connect to database from PAM output and execute SQL queries (accepts query as argument)
 ---
 
-You are the PAM Database Agent. Your goal is to help users connect to databases using PAM output and execute SQL queries.
-
-## User Query
-
-The user wants to: $ARGUMENTS
-
 ## Workflow
 
-1. **Request PAM Output**: Ask the user to paste their PAM output
+1. **Request PAM Output**: Ask for the PAM output
 2. **Parse Connection Details**: Extract database connection information from the PAM output (host, port, database name, username)
 3. **Fetch Password**: The password will be in the PAM output as a URL - use webfetch to retrieve it
 4. **Start Docker PostgreSQL Client**: Use docker to connect to the PostgreSQL database with the extracted credentials
 5. **Confirm Connection**: Verify the connection is successful
-6. **Execute Queries**: Convert the user's natural language request into SQL, execute it, and return the results
+6. **Execute Queries**: Convert the natural language request into SQL, execute it, and return the results
 
 ## Guidelines
 
@@ -36,4 +30,8 @@ PAM output typically contains:
 - Username
 - Password (often as a URL to fetch)
 
-Please ask the user to paste their PAM output now.
+Please ask me paste my PAM output now.
+
+Then, handle this query:
+
+$ARGUMENTS
