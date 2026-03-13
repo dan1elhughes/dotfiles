@@ -1,8 +1,22 @@
 {{- $persemail := promptStringOnce . "persemail" "Personal email address" "github@danhughes.dev" -}}
 {{- $workemail := promptStringOnce . "workemail" "Work email address" -}}
 {{- $gitsigningkey := promptStringOnce . "gitsigningkey" "1Password git signing key (leave empty to disable signing)" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKFfB1MJMVHebVDoYMkhA+GNmgEngOW7WvcLeSL3uhxK" -}}
-{{- $installDev := promptBoolOnce . "installDev" "Install developer tooling (VSCode, golang, Docker etc)" true -}}
-{{- $installDesktop := promptBoolOnce . "installDesktop" "Install desktop apps (Raycast, Spotify, Slack etc)" true -}}
+
+{{- $brewfileChoices := list -}}
+{{- range (glob (joinPath .chezmoi.sourceDir "lib/Brewfile-*")) -}}
+{{-   $brewfileChoices = append $brewfileChoices (base .) -}}
+{{- end -}}
+{{- $brewfiles := promptMultichoice "Which Brewfiles would you like to install" $brewfileChoices -}}
+
+{{- $installDev := false -}}
+{{- if has "Brewfile-dev" $brewfiles -}}
+{{-   $installDev = true -}}
+{{- end -}}
+{{- $installDesktop := false -}}
+{{- if has "Brewfile-desktop" $brewfiles -}}
+{{-   $installDesktop = true -}}
+{{- end -}}
+
 {{- $resetDock := promptBoolOnce . "resetDock" "Reset dock (Unpin all, auto-hide)" true -}}
 {{- $setwallpaper := promptBoolOnce . "setWallpaper" "Set wallpaper" true -}}
 {{- $sudoTouchID := promptBoolOnce . "sudoTouchID" "Use TouchID for sudo" true -}}
@@ -13,6 +27,7 @@
     persemail = {{ $persemail | quote }}
     workemail = {{ $workemail | quote }}
     gitsigningkey = {{ $gitsigningkey | quote }}
+    brewfiles = {{ $brewfiles | toJson }}
     installDev = {{ $installDev }}
     installDesktop = {{ $installDesktop }}
     resetDock = {{ $resetDock }}

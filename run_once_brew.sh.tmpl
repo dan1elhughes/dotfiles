@@ -6,14 +6,9 @@ then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-{{ if .installDesktop }}
-# Brewfile-desktop hash: {{ include "lib/Brewfile-desktop" | sha256sum }}
-brew bundle --quiet --file={{ joinPath .chezmoi.sourceDir "lib/Brewfile-desktop" | quote }}
-{{ end }}
-
-{{ if .installDev }}
-# Brewfile-dev hash: {{ include "lib/Brewfile-dev" | sha256sum }}
-brew bundle --quiet --file={{ joinPath .chezmoi.sourceDir "lib/Brewfile-dev" | quote }}
-{{ end }}
+{{ range .brewfiles -}}
+# {{ . }} hash: {{ include (print "lib/" .) | sha256sum }}
+brew bundle --quiet --file={{ joinPath $.chezmoi.sourceDir "lib" . | quote }}
+{{ end -}}
 
 {{ end -}}
