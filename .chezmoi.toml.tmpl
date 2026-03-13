@@ -8,11 +8,6 @@
 {{- end -}}
 {{- $brewfiles := promptMultichoice "Which Brewfiles would you like to install" $brewfileChoices -}}
 
-{{- $installDev := false -}}
-{{- if has "Brewfile-dev" $brewfiles -}}
-{{-   $installDev = true -}}
-{{- end -}}
-
 {{- $resetDock := promptBoolOnce . "resetDock" "Reset dock (Unpin all, auto-hide)" true -}}
 {{- $setwallpaper := promptBoolOnce . "setWallpaper" "Set wallpaper" true -}}
 {{- $sudoTouchID := promptBoolOnce . "sudoTouchID" "Use TouchID for sudo" true -}}
@@ -24,7 +19,6 @@
     workemail = {{ $workemail | quote }}
     gitsigningkey = {{ $gitsigningkey | quote }}
     brewfiles = {{ $brewfiles | toJson }}
-    installDev = {{ $installDev }}
     resetDock = {{ $resetDock }}
     setwallpaper = {{ $setwallpaper }}
     sudoTouchID = {{ $sudoTouchID }}
