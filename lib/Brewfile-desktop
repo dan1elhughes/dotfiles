@@ -1,5 +1,5 @@
 brew "m-cli"
-cask "balenaetcher"
+brew "chezmoi"
 cask "firefox"
 cask "fork"
 cask "google-chrome"
