@@ -9,7 +9,7 @@
 {{- $brewfiles := promptMultichoiceOnce . "brewfiles" "Which Brewfiles would you like to install" $brewfileChoices $brewfileChoices -}}
 
 {{- $resetDock := promptBoolOnce . "resetDock" "Reset dock (Unpin all, auto-hide)" true -}}
-{{- $setwallpaper := promptBoolOnce . "setWallpaper" "Set wallpaper" true -}}
+{{- $setWallpaper := promptBoolOnce . "setWallpaper" "Set wallpaper" true -}}
 {{- $sudoTouchID := promptBoolOnce . "sudoTouchID" "Use TouchID for sudo" true -}}
 {{- $opencodeFastModel := promptStringOnce . "opencodeFastModel" "Opencode fast model" "google/gemini-3-flash-preview" -}}
 {{- $opencodeSmartModel := promptStringOnce . "opencodeSmartModel" "Opencode smart model" "google/gemini-3-pro-preview" -}}
@@ -20,7 +20,7 @@
     gitsigningkey = {{ $gitsigningkey | quote }}
     brewfiles = {{ $brewfiles | toJson }}
     resetDock = {{ $resetDock }}
-    setwallpaper = {{ $setwallpaper }}
+    setWallpaper = {{ $setWallpaper }}
     sudoTouchID = {{ $sudoTouchID }}
     opencodeFastModel = {{ $opencodeFastModel | quote }}
     opencodeSmartModel = {{ $opencodeSmartModel | quote }}

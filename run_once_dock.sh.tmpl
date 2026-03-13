@@ -18,7 +18,7 @@ m appearance maincolor graphite
 defaults write -g AppleInterfaceStyleSwitchesAutomatically -bool true
 {{ end }}
 
-{{ if .setwallpaper }}
+{{ if .setWallpaper }}
 wget -O $HOME/Pictures/wallpaper.jpeg https://danhughes.dev/wallpaper
 m wallpaper $HOME/Pictures/wallpaper.jpeg
 {{ end }}
