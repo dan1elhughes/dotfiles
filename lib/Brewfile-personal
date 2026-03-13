@@ -1,2 +1,3 @@
+cask "home-assistant"
 cask "steam"
 cask "transmission"
