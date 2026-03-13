@@ -6,7 +6,7 @@
 {{- range (glob (joinPath .chezmoi.sourceDir "lib/Brewfile-*")) -}}
 {{-   $brewfileChoices = append $brewfileChoices (base .) -}}
 {{- end -}}
-{{- $brewfiles := promptMultichoice "Which Brewfiles would you like to install" $brewfileChoices -}}
+{{- $brewfiles := promptMultichoiceOnce . "brewfiles" "Which Brewfiles would you like to install" $brewfileChoices $brewfileChoices -}}
 
 {{- $resetDock := promptBoolOnce . "resetDock" "Reset dock (Unpin all, auto-hide)" true -}}
 {{- $setwallpaper := promptBoolOnce . "setWallpaper" "Set wallpaper" true -}}
