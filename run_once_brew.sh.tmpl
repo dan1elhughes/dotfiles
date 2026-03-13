@@ -8,7 +8,7 @@ fi
 
 {{ range .brewfiles -}}
 # {{ . }} hash: {{ include (print "lib/" .) | sha256sum }}
-brew bundle --quiet --file={{ joinPath $.chezmoi.sourceDir "lib" . | quote }}
+brew bundle --quiet --force --file={{ joinPath $.chezmoi.sourceDir "lib" . | quote }}
 {{ end -}}
 
 {{ end -}}
