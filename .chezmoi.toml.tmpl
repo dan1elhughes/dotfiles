@@ -12,10 +12,6 @@
 {{- if has "Brewfile-dev" $brewfiles -}}
 {{-   $installDev = true -}}
 {{- end -}}
-{{- $installDesktop := false -}}
-{{- if has "Brewfile-desktop" $brewfiles -}}
-{{-   $installDesktop = true -}}
-{{- end -}}
 
 {{- $resetDock := promptBoolOnce . "resetDock" "Reset dock (Unpin all, auto-hide)" true -}}
 {{- $setwallpaper := promptBoolOnce . "setWallpaper" "Set wallpaper" true -}}
@@ -29,7 +25,6 @@
     gitsigningkey = {{ $gitsigningkey | quote }}
     brewfiles = {{ $brewfiles | toJson }}
     installDev = {{ $installDev }}
-    installDesktop = {{ $installDesktop }}
     resetDock = {{ $resetDock }}
     setwallpaper = {{ $setwallpaper }}
     sudoTouchID = {{ $sudoTouchID }}
