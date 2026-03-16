@@ -2,18 +2,32 @@
 description: Commit staged changes following project conventions
 ---
 
-Review the diff, and create a git commit for any changes. You may create multiple commits if there are multiple distinct changes.
+Review the changes and create a suitable commit message.
+
+Follow these steps:
+
+1. First, examine the git status to see what's staged:
+
+!`git status`
+
+2. Review the staged changes in detail:
+
+!`git diff --staged`
+
+3. If necessary, examine specific changed files to understand the changes better. Use read tools for key files.
+
+4. Look at recent commit history for context:
+
+!`git log --oneline -5`
+
+5. Analyze the changes and create a concise, descriptive commit message that follows conventional commit format if and only if the previous commits do. Focus on the 'why' rather than just the 'what'.
+
+6. Present the proposed commit message to the user and ask for confirmation before committing.
+
+7. If user confirms, execute the commit with the proposed message. If not, ask for adjustments.
+
+IMPORTANT: Always ask for user confirmation before actually running 'git commit'. Use the `question` tool to ask yes or no. Provide reasoning for your proposed commit message based on the changes observed.
+
+You may create multiple commits if there are multiple distinct changes.
 
 $ARGUMENTS
-
-Last ten commits:
-
-!`git log --oneline -10`
-
-Analyze these messages to ensure your new commit message follows the project's conventions (e.g. format, tense, capitalization).
-
-Use a concise message/body with no fluff. Sacrifice grammar for the sake of concision. Do not add section titles or formatting - just a brief description of the current change.
-
-IMPORTANT: Do NOT use conventional commit format (e.g., "feat:", "fix:", "chore:" prefixes). Use simple, descriptive commit messages without type prefixes.
-
-Then, create the commit with the generated message.
