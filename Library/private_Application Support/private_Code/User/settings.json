@@ -101,5 +101,6 @@
   "workbench.preferredLightColorTheme": "Ayu Light Bordered",
   "workbench.preferredHighContrastLightColorTheme": "Ayu Light Bordered",
   "workbench.preferredHighContrastColorTheme": "Ayu Mirage Bordered",
-  "workbench.preferredDarkColorTheme": "Ayu Mirage Bordered"
+  "workbench.preferredDarkColorTheme": "Ayu Mirage Bordered",
+  "terminal.integrated.stickyScroll.enabled": false
 }
