@@ -1,25 +1,22 @@
 ---
-description: Commit staged changes following project conventions
+description: Commit staged changes or auto-stage atomic commits based on project conventions
 ---
 
-Review the changes and create a suitable commit message.
+**TASK**
+Review git status and create suitable commit messages. You must adapt your behavior based on whether changes are already staged.
 
-You may create multiple commits if there are multiple distinct changes. If your commit message contains "and", consider splitting it into two separate commits if the changes are logically distinct.
+**CONSTRAINTS**
+* **Strict Boundary:** Your ONLY task is to stage (if necessary) and commit. Do NOT attempt to run tests, build the project, or verify changes.
+* **Staging Logic:** If ANY changes are already staged, you must ONLY commit what is currently staged. Do not stage any additional files. If NO changes are staged, you must review unstaged modified files and selectively stage them to create logical, atomic commits.
+* **Atomicity:** Commits must be atomic. If your proposed commit message contains the word "and", the changes are likely not atomic. If you are auto-staging, split distinct changes into multiple separate commits.
+* **Style Matching:** You must adapt to the repository's history. If recent commits use Conventional Commits (e.g., `feat:`, `fix:`), you must match that format. If they do not, DO NOT use conventions or colons. Focus on the *why* rather than just the *what*.
 
-Do not attempt to run tests, verify changes, or do anything other than commit. Your task is ONLY to commit.
-
-Follow these steps:
-
-1. First, examine the git status to see what's staged.
-
-2. Review the staged changes in detail.
-
-3. If necessary, examine specific changed files to understand the changes better. Use read tools for key files.
-
-4. Look at recent commit history for context.
-
-5. Decide if the recent commits follow a conventional commit format. If they do, your commit message must also follow that format. If not, you must NOT use conventional commits or include a ":", but it should still be clear and descriptive. Focus on the 'why' rather than just the 'what'.
-
-6. Commit the changes.
+**EXECUTION STEPS**
+1. Run `git status` to determine the current state of the working directory.
+2. **Branch A (Changes already staged):** Review the staged changes (`git diff --staged`). Proceed to step 4.
+3. **Branch B (Nothing is staged):** Review unstaged changes (`git diff`). Identify logically related changes and stage them (`git add`).
+4. Use read tools on specific files if you need more context beyond the diff.
+5. Check recent commit history to determine the project's commit naming convention.
+6. Execute the commit(s).
 
 $ARGUMENTS
