@@ -1,0 +1,6 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+
+git -C {{ .chezmoi.sourceDir }} remote set-url origin git@github.com:dan1elhughes/dotfiles.git
+
+{{ end -}}
