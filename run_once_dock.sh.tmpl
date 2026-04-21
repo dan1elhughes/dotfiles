@@ -62,4 +62,7 @@ defaults write com.apple.screencapture disable-shadow -bool true
 # Disable auto-adjust brightness
 defaults write com.apple.preference.Brightness NSAutomaticBrightnessEnabled -bool false
 
+# Disable dim display on battery
+sudo pmset -b dim 0
+
 {{ end -}}
