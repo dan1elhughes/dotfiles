@@ -45,4 +45,18 @@ fi
 osascript -e 'tell application "Finder" to set desktop picture to POSIX file "'"$HOME/Pictures/wallpaper.jpeg"'"'
 {{ end }}
 
+# Show all file extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Show hidden files
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+# Finder opens to home folder
+defaults write com.apple.finder NewWindowTarget -string "PfHm"
+defaults write com.apple.finder NewWindowTargetPath -string "$HOME"
+
+# Screenshots to desktop
+defaults write com.apple.screencapture location "$HOME/Desktop"
+defaults write com.apple.screencapture disable-shadow -bool true
+
 {{ end -}}
