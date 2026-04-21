@@ -65,4 +65,8 @@ defaults write com.apple.preference.Brightness NSAutomaticBrightnessEnabled -boo
 # Disable dim display on battery
 sudo pmset -b dim 0
 
+# Power settings: display sleep 10 min, sleep 30 min
+sudo pmset -c displaysleep 10 sleep 30
+sudo pmset -b displaysleep 10 sleep 30
+
 {{ end -}}
