@@ -22,6 +22,16 @@ defaults write -g AppleAccentColor -int -1
 # Set theme to auto
 defaults write -g AppleInterfaceStyleSwitchesAutomatically -bool true
 
+# Hot Corners: Disable Screen Saver (6)
+defaults write com.apple.dock wvous-tl-corner -int 6
+defaults write com.apple.dock wvous-tl-modifier -int 0
+defaults write com.apple.dock wvous-tr-corner -int 6
+defaults write com.apple.dock wvous-tr-modifier -int 0
+defaults write com.apple.dock wvous-bl-corner -int 6
+defaults write com.apple.dock wvous-bl-modifier -int 0
+defaults write com.apple.dock wvous-br-corner -int 6
+defaults write com.apple.dock wvous-br-modifier -int 0
+
 # Restart Dock to apply changes
 killall Dock 2>/dev/null || true
 
