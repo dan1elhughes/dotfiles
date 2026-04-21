@@ -3,30 +3,33 @@
 
 {{ if .resetDock }}
 # Empty dock
-m dock --prune
+defaults delete com.apple.dock persistent-apps 2>/dev/null || true
+defaults write com.apple.dock persistent-apps -array '()'
 {{ end }}
 
 # Enable auto-hide
-m dock --autohide enable
+defaults write com.apple.dock autohide -bool true
 
 # Mute startup sound
 sudo nvram StartupMute=%01
 
-# Set main colour to grey
-m appearance --maincolor graphite
+# Set main colour to graphite
+defaults write -g AppleAccentColor -int -1
 
 # Set theme to auto
 defaults write -g AppleInterfaceStyleSwitchesAutomatically -bool true
 
+# Restart Dock to apply changes
+killall Dock 2>/dev/null || true
+
 # Disable click to show desktop
 defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
-
 
 {{ if .setWallpaper }}
 if [ ! -f $HOME/Pictures/wallpaper.jpeg ]; then
   wget -O $HOME/Pictures/wallpaper.jpeg https://danhughes.dev/wallpaper
 fi
-m wallpaper --set $HOME/Pictures/wallpaper.jpeg
+osascript -e 'tell application "Finder" to set desktop picture to POSIX file "'"$HOME/Pictures/wallpaper.jpeg"'"'
 {{ end }}
 
 {{ end -}}
