@@ -4,9 +4,7 @@
 {{ if .gitsigningkey }}
     signingkey = "{{ .gitsigningkey }}"
 {{ end }}
-[includeIf "gitdir:~/src/github.com/HykoAPI/"]
-    path = ~/.work.gitconfig
-[includeIf "gitdir:~/src/github.com/tideplatform/"]
+[includeIf "gitdir:~/src/github.com/enode/"]
     path = ~/.work.gitconfig
 {{ if .gitsigningkey }}
 [gpg]
