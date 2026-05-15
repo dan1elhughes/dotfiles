@@ -19,6 +19,9 @@ sudo nvram StartupMute=%01
 # Set main colour to graphite
 defaults write -g AppleAccentColor -int -1
 
+# Reduce transparency for more opaque interface (closest to tinted mode - no CLI for tinted)
+defaults write -g AppleReduceTransparency -bool true
+
 # Set theme to auto
 defaults write -g AppleInterfaceStyleSwitchesAutomatically -bool true
 
