@@ -12,5 +12,5 @@ function g() {
 }
 
 function gcai() {
-	{{ .unattendedAICommandPrefix }} "/commit-auto"
+	{{ .unattendedAICommandPrefix }} "/commit-auto" -m "{{ .smallModel }}"
 }
