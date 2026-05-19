@@ -24,5 +24,5 @@ function watchchecks() {
 }
 
 function sendit() {
-    gp -u && gh pr create --fill && gh pr merge --squash --auto && gh pr edit --add-reviewer @copilot
+    gp -u && gh pr create --fill --draft && gh pr view --web
 }
