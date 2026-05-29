@@ -1,22 +1,19 @@
 ---
-description: Commit staged changes or auto-stage atomic commits based on project conventions
+description: Commit staged changes
 ---
 
 **TASK**
-Review git status and create suitable commit messages. You must adapt your behavior based on whether changes are already staged.
+This is the current staged diff:
+
+```diff
+!`git diff --staged`
+```
+
+Without running any other commands, testing, or taking any other steps, run `git commit -m "XXX" -e` with a suitable commit message for this change.
 
 **CONSTRAINTS**
-* **Strict Boundary:** Your ONLY task is to stage (if necessary) and commit. Do NOT attempt to run tests, build the project, or verify changes.
-* **Staging Logic:** If ANY changes are already staged, you must ONLY commit what is currently staged. Do not stage any additional files. If NO changes are staged, you must review unstaged modified files and selectively stage them to create logical, atomic commits.
-* **Atomicity:** Commits must be atomic. If your proposed commit message contains the word "and", the changes are likely not atomic. If you are auto-staging, split distinct changes into multiple separate commits.
-* **Style Matching:** You must adapt to the repository's history. If recent commits use Conventional Commits (e.g., `feat:`, `fix:`), you must match that format. If they do not, DO NOT use conventions or colons. Focus on the *why* rather than just the *what*.
-
-**EXECUTION STEPS**
-1. Run `git status` to determine the current state of the working directory.
-2. **Branch A (Changes already staged):** Review the staged changes (`git diff --staged`). Proceed to step 4.
-3. **Branch B (Nothing is staged):** Review unstaged changes (`git diff`). Identify logically related changes and stage them (`git add`).
-4. Use read tools on specific files if you need more context beyond the diff.
-5. Check recent commit history to determine the project's commit naming convention.
-6. Execute the commit(s).
+* Do NOT run any additional commands such as `git status`, `git diff`, tests, or builds; only run the final `git commit -m "XXX" -e`.
+* Do NOT stage or unstage files.
+* Choose a concise message that fits the current diff.
 
 $ARGUMENTS
