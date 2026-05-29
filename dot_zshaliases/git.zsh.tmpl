@@ -12,5 +12,10 @@ function g() {
 }
 
 function gcai() {
-	{{ .unattendedAICommandPrefix }} "/commit-auto" -m "{{ .smallModel }}"
+	if git diff --cached --quiet; then
+		echo "gcai: no staged files to commit" >&2
+		return 1
+	fi
+
+	opencode run --command commit-auto --model {{ .smallModel }} --variant none
 }
