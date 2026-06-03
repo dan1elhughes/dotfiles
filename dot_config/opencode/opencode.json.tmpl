@@ -5,7 +5,8 @@
     "enode": {
       "type": "remote",
       "url": "https://emcp.production.enode.com/mcp",
-      "enabled": {{ has "enode" .enabledMcps }}
+      "enabled": {{ has "enode" .enabledMcps }},
+      "timeout": 2000
     },
     "notion": {
       "type": "remote",
