@@ -11,5 +11,9 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/opt/go/bin:$PATH"
 
+# NVM stuff
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+
 # chezmoi/dot_zshenv
 source ~/.env
