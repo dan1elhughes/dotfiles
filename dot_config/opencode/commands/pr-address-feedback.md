@@ -5,6 +5,7 @@ description: Address GitHub PR feedback one thread per commit, then push/reply/r
 Use `gh` to read PR feedback. Fix one actionable unresolved comment/thread per commit.
 
 Steps:
+
 1. Find PR: use provided number/URL, else `gh pr view --json number,url,headRefName,baseRefName,title`. Ask if ambiguous.
 2. Check worktree: `git status --short`. Preserve unrelated user changes.
 3. Read feedback:
@@ -20,6 +21,7 @@ Steps:
 9. Final summary: pushed branch, replies/resolutions, commits, checks, skips/blocks.
 
 Rules:
+
 - One comment/thread = one commit.
 - No force-push unless explicitly asked.
 - No push, GitHub reply/comment, or thread resolution before confirmation.
