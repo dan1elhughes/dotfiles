@@ -17,5 +17,5 @@ function gcai() {
 		return 1
 	fi
 
-	opencode run --command commit-auto --model {{ .smallModel }} --variant none
+	opencode run --command commit-auto {{ .smallModelArgs }}
 }

@@ -12,10 +12,10 @@
 {{- $setWallpaper := promptBoolOnce . "setWallpaper" "Set wallpaper" true -}}
 {{- $sudoTouchID := promptBoolOnce . "sudoTouchID" "Use TouchID for sudo" true -}}
 
-{{- $mcpChoices := list "enode" "notion" "fastmail" -}}
+{{- $mcpChoices := list "enode" "fastmail" -}}
 {{- $enabledMcps := promptMultichoiceOnce . "enabledMcps" "Which MCPs would you like to enable" $mcpChoices $mcpChoices -}}
 
-{{- $smallModel := promptStringOnce . "smallModel" "Small model" "openai/gpt-5.4-mini-fast" -}}
+{{- $smallModelArgs := promptStringOnce . "smallModelArgs" "Small model args" "--model github-copilot/gemini-3.5-flash --variant minimal" -}}
 {{- $standardModel := promptStringOnce . "standardModel" "Standard model" "openai/gpt-5.5" -}}
 {{- $smartModel := promptStringOnce . "smartModel" "Smart model" "openai/gpt-5.5-pro" -}}
 
@@ -28,7 +28,7 @@
     setWallpaper = {{ $setWallpaper }}
     sudoTouchID = {{ $sudoTouchID }}
     enabledMcps = {{ $enabledMcps | toJson }}
-    smallModel = {{ $smallModel | quote }}
+    smallModelArgs = {{ $smallModelArgs | quote }}
     standardModel = {{ $standardModel | quote }}
     smartModel = {{ $smartModel | quote }}
 [diff]
