@@ -24,8 +24,17 @@ If the argument is missing, ambiguous, or contains more than one identifier → 
 
 ## Commit
 
-7. **Changes were needed:** review `git diff`, stage only the files changed for this item, commit with a concise descriptive message. Do not push.
+7. **Changes were needed:** review `git diff`, stage only the files changed for this item, commit with a concise descriptive message. Do not push yet.
 8. **Item already fully implemented (no changes needed):** verify it with the narrowest relevant command and do not create an empty commit. Report `Commit hash: none — existing implementation verified` with evidence: exact symbols/files implementing it, exact test names/files, and the passing verification command.
+
+## Draft PR exception
+
+If and only if the selected checklist item explicitly says to create a draft PR:
+
+- First complete steps 4–8 above, including a passing verification command and a local commit when changes were needed.
+- Then push the current branch only as needed to create or update the draft PR. Do not push earlier checklist items.
+- Create the PR as a draft. Include a concise summary, verification commands, and any PR-body guidance from the Linear item or issue description.
+- Do not mark the checklist item complete until the draft PR exists, or → BLOCKED if branch push or PR creation fails.
 
 ## Update Linear
 
@@ -47,10 +56,10 @@ Print exactly one per invocation, and nothing that imitates them otherwise:
 
 ## Final report
 
-Include: issue identifier; the item completed or verified; commit hash (or `none — existing implementation verified`); verification commands run; whether the Linear checkbox update succeeded; progress (completed/total, remaining count, next uncompleted item if any).
+Include: issue identifier; the item completed or verified; commit hash (or `none — existing implementation verified`); verification commands run; draft PR URL if one was created; whether the Linear checkbox update succeeded; progress (completed/total, remaining count, next uncompleted item if any).
 
 ## Hard rules
 
-- One checklist item per invocation. No pushes. No Linear comments unless explicitly asked — the only required write is the checkbox update.
+- One checklist item per invocation. Do not push as you go; pushing is allowed only when the selected checklist item explicitly requires creating a draft PR. No Linear comments unless explicitly asked — the only required Linear write is the checkbox update.
 - Never mark an item complete before verification has passed and a commit exists or the existing implementation is verified.
 - Preserve unrelated worktree changes and unrelated description edits.
