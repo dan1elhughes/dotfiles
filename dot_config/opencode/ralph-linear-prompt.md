@@ -48,4 +48,6 @@ Rules:
   - Print `=== BLOCKED ===` whenever the command cannot make forward progress.
   - Every invocation must print exactly one of these semaphores: `=== ALL TASKS COMPLETE ===`, `=== CONTINUE ===`, or `=== BLOCKED ===`.
 
-Linear issue identifier:
+The only argument is the Linear issue identifier, for example `HE-1234` or `HE1234`:
+
+`$ARGUMENTS`

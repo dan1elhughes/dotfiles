@@ -28,8 +28,13 @@ ralph-linear() {
 			return 1
 		fi
 
-		prompt="$(cat "$prompt_file")
+		prompt="$(cat "$prompt_file")"
+		if [[ "$prompt" == *'\$ARGUMENTS'* ]]; then
+			prompt="${prompt//\$ARGUMENTS/$linear_id}"
+		else
+			prompt="${prompt}
 ${linear_id}"
+		fi
 
 		output_file="$(mktemp -t ralph-linear.XXXXXX)" || return 1
 		opencode run "$prompt" 2>&1 | tee "$output_file"
