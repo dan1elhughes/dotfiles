@@ -42,7 +42,7 @@ Workflow:
    - If a standard command is unavailable, inspect package scripts/build files and use the closest local equivalent.
    - If verification fails, fix and rerun until it passes, or stop with a clear blocker.
 10. Review `git diff`, stage only files changed for this checklist item, and commit with a concise descriptive message. Do not push.
-11. After the commit succeeds, update the Linear issue description to mark exactly the selected checklist item complete by changing only that item's checkbox to `[x]`. Preserve all other description text and checklist state.
+11. After the commit succeeds, update the Linear issue description to mark exactly the selected checklist item complete by changing only that item's checkbox to `[x]`. Preserve all other description text and checklist state. When sending the Linear update, do not include a `parent` field unless intentionally changing the parent; if the tool requires a parent value, preserve the issue's existing parent exactly. Never set an issue as its own parent.
 12. If the Linear description update fails, do not amend the code commit. Print `=== BLOCKED ===`, report the failure, and include the exact checklist item that still needs to be marked complete.
 13. After updating Linear, read or reason over the updated description. If there are no remaining uncompleted checklist items, print `=== ALL TASKS COMPLETE ===`. If more uncompleted checklist items remain, do not print either semaphore; the caller may invoke this command again to continue with the next item.
 14. For any blocker that prevents completing the selected item, print `=== BLOCKED ===` and explain the blocker. Blockers include missing required context, failing verification that cannot be fixed safely, dirty worktree conflicts with user changes, unavailable Linear write access, or a Linear description that has not been prepared with checkboxes.
@@ -61,6 +61,7 @@ Rules:
 - Do not push.
 - Do not post Linear comments unless explicitly asked; the required Linear write is only the description checkbox update.
 - Preserve unrelated worktree changes and unrelated Linear description edits.
+- Preserve Linear issue relationships during the checkbox update: omit relationship fields unless they must be supplied, and never rewrite the parent to the current issue.
 - Semaphore contract for automation:
   - Print `=== ALL TASKS COMPLETE ===` only when the Linear issue has no remaining uncompleted checklist items.
   - Print `=== BLOCKED ===` whenever the command cannot make forward progress.
