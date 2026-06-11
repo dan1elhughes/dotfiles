@@ -24,7 +24,7 @@ Workflow:
 11. If no code/config/doc changes were needed because the selected checklist item is already fully implemented, verify it with the narrowest relevant command. If verification passes, do not create an empty commit; continue to the Linear checkbox update and report `Commit hash: none — existing implementation verified`. Include evidence: exact implementation symbols/files, exact test names/files, and the passing verification command.
 12. After the commit succeeds, or after an already-implemented item is verified, update the Linear issue description to mark exactly the selected checklist item complete by changing only that item's checkbox to `[x]`. Preserve all other description text and checklist state. When sending the Linear update, do not include a `parent` field unless intentionally changing the parent; if the tool requires a parent value, preserve the issue's existing parent exactly. Never set an issue as its own parent.
 13. If the Linear description update fails, do not amend any code commit. Print `=== BLOCKED ===`, report the failure, and include the exact checklist item that still needs to be marked complete.
-14. After updating Linear, read or reason over the updated description. If there are no remaining uncompleted checklist items, print `=== ALL TASKS COMPLETE ===`. If more uncompleted checklist items remain, print `=== CONTINUE ===`.
+14. After updating Linear, read or reason over the updated description and calculate checklist progress from the issue description: total checkbox items, completed checkbox items, remaining uncompleted checkbox items, and the next uncompleted checklist item if one exists. If there are no remaining uncompleted checklist items, print `=== ALL TASKS COMPLETE ===`. If more uncompleted checklist items remain, print `=== CONTINUE ===`.
 15. For any blocker that prevents completing the selected item, print `=== BLOCKED ===` and explain the blocker. Blockers include missing required context, failing verification that cannot be fixed safely, dirty worktree conflicts with user changes, unavailable Linear write access, or a Linear description that has not been prepared with checkboxes.
 16. Final response must include:
     - Linear issue identifier
@@ -32,6 +32,7 @@ Workflow:
     - Commit hash
     - Verification commands run
     - Whether the Linear checkbox update succeeded
+    - Progress update: completed/total checklist items, remaining count, and the next uncompleted checklist item if one remains
 
 Rules:
 
