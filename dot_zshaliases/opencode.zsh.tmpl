@@ -8,6 +8,11 @@ fi
 
 alias o="opencode"
 alias oc="opencode --continue"
+alias osr="swarm-review --pr"
+
+swarm-review() {
+	SWARM_REVIEW_FINAL_OPENCODE_ARGS=${SWARM_REVIEW_FINAL_OPENCODE_ARGS:-{{ .smallModelArgs | quote }}} command swarm-review "$@"
+}
 
 ralph-linear() {
 	if [ "$#" -ne 1 ]; then
