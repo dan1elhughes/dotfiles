@@ -10,9 +10,12 @@ Steps:
 
 1. Parse the link into `owner`, `repo`, PR number, and review comment database ID from the `#r...` fragment. If the link is missing or not a GitHub PR review-comment link, ask for a valid link.
 2. Confirm the local checkout matches the linked repo with `gh repo view --json nameWithOwner` and inspect the worktree with `git status --short`. Preserve unrelated user changes.
+   - If the worktree has unrelated changes, do not stage them. If they block the requested fix, stop and ask for guidance.
 3. Read the linked review comment and thread context:
    - Use REST for the comment: `gh api repos/<owner>/<repo>/pulls/comments/<comment_id>`.
+   - GitHub PR review comment URL fragments use `#r<database_id>`; strip the leading `r` to get the REST/GraphQL `databaseId`.
    - Use GraphQL to find the containing review thread for the PR by matching the review comment `databaseId` or `id` inside `reviewThreads(first: 100) { nodes { id isResolved comments(first: 100) { nodes { id databaseId body path line url author { login } } } } }`. Paginate if needed.
+   - The containing thread ID is the parent `reviewThreads.nodes[].id` for the matched comment. This ID has the `PRRT_...` shape and is the value required by `addPullRequestReviewThreadReply` and `resolveReviewThread`.
    - Do not request `reviewThreads` from `gh pr view --json`; it is unsupported.
    - Include enough surrounding diff/file context to understand the requested change.
 4. Decide whether the comment is actionable. If it is ambiguous, already fixed, or unsafe to change, stop and ask for guidance.
@@ -32,6 +35,7 @@ Steps:
     - push the current branch (no force-push unless explicitly requested)
     - post the prepared reply with GraphQL `addPullRequestReviewThreadReply(input: { pullRequestReviewThreadId: <thread-id>, body: <reply-body> })`
     - resolve the thread with GraphQL `resolveReviewThread(input: { threadId: <thread-id> })`
+    - If push succeeds but comment or resolve fails, do not retry with changed content or alternate mutations unless you have inspected the API error. Report exactly which step failed and the error.
 11. Final summary: pushed branch, comment posted, thread resolved, commit, and verification.
 
 Rules:
