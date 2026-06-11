@@ -32,7 +32,8 @@ If the argument is missing, ambiguous, or contains more than one identifier → 
 Only after verification passed and step 7 or 8 succeeded:
 
 9. Update the issue description, changing **only** the selected item's checkbox to `[x]`. Preserve all other text and checklist state.
-   - Omit relationship fields (e.g. `parent`) unless the tool requires them; if required, pass the existing values unchanged. Never set an issue as its own parent.
+   - Omit relationship fields (e.g. `parent`) unless the tool requires them; `linear_update_issue` accepts `parent`, but do not send it unless necessary.
+   - If a parent must be preserved, fetch the issue's current parent first and pass the actual parent issue identifier (for example `HE-2762`), never the current issue ID. Never set an issue as its own parent.
    - If the update fails → BLOCKED; do not amend the commit; report which item still needs marking.
 10. From the updated description, compute progress: total / completed / remaining checkbox counts, and the next uncompleted item if any.
 
