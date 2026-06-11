@@ -16,7 +16,7 @@ ralph-linear() {
 	fi
 
 	local linear_id="$1"
-	local output_file status iteration prompt
+	local output_file opencode_status iteration prompt
 	iteration=1
 	prompt=$(cat <<'RALPH_LINEAR_PROMPT'
 Implement exactly one sequential checklist item from a Linear issue.
@@ -41,14 +41,15 @@ Workflow:
    - Tests: run the narrowest relevant test command that covers the change; if no narrow test exists, run the smallest practical test suite.
    - If a standard command is unavailable, inspect package scripts/build files and use the closest local equivalent.
    - If verification fails, fix and rerun until it passes, or stop with a clear blocker.
-10. Review `git diff`, stage only files changed for this checklist item, and commit with a concise descriptive message. Do not push.
-11. After the commit succeeds, update the Linear issue description to mark exactly the selected checklist item complete by changing only that item's checkbox to `[x]`. Preserve all other description text and checklist state. When sending the Linear update, do not include a `parent` field unless intentionally changing the parent; if the tool requires a parent value, preserve the issue's existing parent exactly. Never set an issue as its own parent.
-12. If the Linear description update fails, do not amend the code commit. Print `=== BLOCKED ===`, report the failure, and include the exact checklist item that still needs to be marked complete.
-13. After updating Linear, read or reason over the updated description. If there are no remaining uncompleted checklist items, print `=== ALL TASKS COMPLETE ===`. If more uncompleted checklist items remain, do not print either semaphore; the caller may invoke this command again to continue with the next item.
-14. For any blocker that prevents completing the selected item, print `=== BLOCKED ===` and explain the blocker. Blockers include missing required context, failing verification that cannot be fixed safely, dirty worktree conflicts with user changes, unavailable Linear write access, or a Linear description that has not been prepared with checkboxes.
-15. Final response must include:
+10. If code/config/doc changes were needed, review `git diff`, stage only files changed for this checklist item, and commit with a concise descriptive message. Do not push.
+11. If no code/config/doc changes were needed because the selected checklist item is already fully implemented, verify it with the narrowest relevant command. If verification passes, do not create an empty commit; continue to the Linear checkbox update and report `Commit hash: none — existing implementation verified`. Include evidence: exact implementation symbols/files, exact test names/files, and the passing verification command.
+12. After the commit succeeds, or after an already-implemented item is verified, update the Linear issue description to mark exactly the selected checklist item complete by changing only that item's checkbox to `[x]`. Preserve all other description text and checklist state. When sending the Linear update, do not include a `parent` field unless intentionally changing the parent; if the tool requires a parent value, preserve the issue's existing parent exactly. Never set an issue as its own parent.
+13. If the Linear description update fails, do not amend any code commit. Print `=== BLOCKED ===`, report the failure, and include the exact checklist item that still needs to be marked complete.
+14. After updating Linear, read or reason over the updated description. If there are no remaining uncompleted checklist items, print `=== ALL TASKS COMPLETE ===`. If more uncompleted checklist items remain, print `=== CONTINUE ===`.
+15. For any blocker that prevents completing the selected item, print `=== BLOCKED ===` and explain the blocker. Blockers include missing required context, failing verification that cannot be fixed safely, dirty worktree conflicts with user changes, unavailable Linear write access, or a Linear description that has not been prepared with checkboxes.
+16. Final response must include:
     - Linear issue identifier
-    - Checklist item completed
+    - Checklist item completed or verified
     - Commit hash
     - Verification commands run
     - Whether the Linear checkbox update succeeded
@@ -56,16 +57,17 @@ Workflow:
 Rules:
 
 - Exactly one checklist item per invocation.
-- Do not mark the Linear item complete before verification and commit have succeeded.
-- Do not create a commit if there are no code/config/doc changes needed for the selected item; instead explain why and ask how to proceed.
+- Do not mark the Linear item complete before verification has succeeded and either a commit has been created or the existing implementation has been verified.
+- Do not create a commit if there are no code/config/doc changes needed for the selected item; verify the existing implementation and mark the Linear item complete instead.
 - Do not push.
 - Do not post Linear comments unless explicitly asked; the required Linear write is only the description checkbox update.
 - Preserve unrelated worktree changes and unrelated Linear description edits.
 - Preserve Linear issue relationships during the checkbox update: omit relationship fields unless they must be supplied, and never rewrite the parent to the current issue.
 - Semaphore contract for automation:
   - Print `=== ALL TASKS COMPLETE ===` only when the Linear issue has no remaining uncompleted checklist items.
+  - Print `=== CONTINUE ===` after successfully completing or verifying exactly one checklist item when more uncompleted checklist items remain.
   - Print `=== BLOCKED ===` whenever the command cannot make forward progress.
-  - Do not print either semaphore after successfully completing one item if more checklist items remain.
+  - Every invocation must print exactly one of these semaphores: `=== ALL TASKS COMPLETE ===`, `=== CONTINUE ===`, or `=== BLOCKED ===`.
 
 Linear issue identifier:
 RALPH_LINEAR_PROMPT
@@ -77,7 +79,7 @@ ${linear_id}"
 		echo "ralph-linear: iteration ${iteration} for ${linear_id}"
 		output_file="$(mktemp -t ralph-linear.XXXXXX)" || return 1
 		opencode run "$prompt" 2>&1 | tee "$output_file"
-		status=$pipestatus[1]
+		opencode_status=$pipestatus[1]
 
 		if grep -q '=== ALL TASKS COMPLETE ===' "$output_file"; then
 			rm -f "$output_file"
@@ -89,13 +91,20 @@ ${linear_id}"
 			return 1
 		fi
 
-		rm -f "$output_file"
-
-		if [ "$status" -ne 0 ]; then
-			echo "ralph-linear: opencode exited with status ${status} before emitting a completion semaphore"
-			return "$status"
+		if grep -q '=== CONTINUE ===' "$output_file"; then
+			rm -f "$output_file"
+			iteration=$((iteration + 1))
+			continue
 		fi
 
-		iteration=$((iteration + 1))
+		rm -f "$output_file"
+
+		if [ "$opencode_status" -ne 0 ]; then
+			echo "ralph-linear: opencode exited with status ${opencode_status} before emitting a completion semaphore"
+			return "$opencode_status"
+		fi
+
+		echo "ralph-linear: opencode exited without emitting a completion semaphore"
+		return 1
 	done
 }
