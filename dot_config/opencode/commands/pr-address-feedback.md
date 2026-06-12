@@ -2,28 +2,18 @@
 description: Address GitHub PR feedback one thread per commit, then push/reply/resolve after confirmation
 ---
 
-Use `gh` to read PR feedback. Fix one actionable unresolved comment/thread per commit.
+Use `gh` to address PR feedback: one actionable unresolved comment/thread per commit. Never push, reply, or resolve threads before explicit confirmation. Never force-push unless asked. Never overwrite unrelated user changes. Ask before expanding scope beyond the current item.
 
-Steps:
-
-1. Find PR: use provided number/URL, else `gh pr view --json number,url,headRefName,baseRefName,title`. Ask if ambiguous.
-2. Check worktree: `git status --short`. Preserve unrelated user changes.
-3. Read feedback:
+1. **Find PR**: use provided number/URL, else `gh pr view --json number,url,headRefName,baseRefName,title`. Ask if ambiguous.
+2. **Check worktree**: `git status --short`; note unrelated changes to preserve.
+3. **Read feedback**:
    - `gh pr view <pr> --json number,title,url,reviewDecision,comments,reviews`
    - `gh api repos/:owner/:repo/pulls/<number>/comments --paginate`
    - `gh api repos/:owner/:repo/issues/<number>/comments --paginate`
-   - For threads, use GraphQL. Do not request `reviewThreads` from `gh pr view --json`; it is unsupported.
-4. Build a checklist. Skip praise/non-actionable/already resolved items; mention skips later.
-5. For each item: make only needed changes, run targeted verification, review `git diff`, stage related files only, commit before moving on.
-6. Track each fixed item as: thread/comment ID -> short commit SHA -> `Resolved in <short SHA>`.
-7. Before network writes, show: push target, fixed-item map, threads to resolve, checks, skips/blocks. Ask for confirmation.
-8. After confirmation only: push branch, post each reply exactly as tracked, and resolve fixed review threads when possible.
-9. Final summary: pushed branch, replies/resolutions, commits, checks, skips/blocks.
-
-Rules:
-
-- One comment/thread = one commit.
-- No force-push unless explicitly asked.
-- No push, GitHub reply/comment, or thread resolution before confirmation.
-- Do not overwrite user changes.
-- Ask before expanding scope beyond the current item.
+   - Threads: GraphQL only (`reviewThreads` is unsupported in `gh pr view --json`).
+4. **Checklist**: actionable items only; record skips (praise, non-actionable, already resolved) to report later.
+5. **Per item**: minimal change → targeted verification → review `git diff` → stage only related files → commit. Commit body must quote or clearly summarize the reviewer's request when review context exists.
+6. **Track**: thread/comment ID → short SHA → reply text `Resolved in <short SHA>`. For swarm reviews, also record the exact review item title.
+7. **Confirm**: show push target, item→SHA map, threads to resolve, verification results, skips/blocks. Wait for approval.
+8. **Execute** (post-approval only): push branch; post each tracked reply verbatim; resolve fixed threads where possible. Swarm reviews: for each fixed item, prefix its title with ✅ and add `Resolved in <short SHA>` directly beneath the title, within the expandable section — preserve the rest of the body unchanged.
+9. **Summarize**: branch pushed, replies/resolutions, commits, verification, skips/blocks.
