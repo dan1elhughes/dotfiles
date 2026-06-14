@@ -12,7 +12,7 @@
 {{- $setWallpaper := promptBoolOnce . "setWallpaper" "Set wallpaper" true -}}
 {{- $sudoTouchID := promptBoolOnce . "sudoTouchID" "Use TouchID for sudo" true -}}
 
-{{- $mcpChoices := list "enode" "fastmail" -}}
+{{- $mcpChoices := list "enode" -}}
 {{- $enabledMcps := promptMultichoiceOnce . "enabledMcps" "Which MCPs would you like to enable" $mcpChoices $mcpChoices -}}
 
 {{- $smallModelArgs := promptStringOnce . "smallModelArgs" "Small model args" "--model github-copilot/gemini-3.5-flash --variant minimal" -}}

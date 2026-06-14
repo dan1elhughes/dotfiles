@@ -3,18 +3,12 @@
   "plugin": [
     "@mohak34/opencode-notifier@latest",
   ],
-  "mcp": {
-    "enode": {
-      "type": "remote",
-      "url": "https://emcp.production.enode.com/mcp",
-      "enabled": {{ has "enode" .enabledMcps }},
-      "timeout": 2000
-    },
-    "fastmail": {
-      "type": "remote",
-      "url": "https://api.fastmail.com/mcp",
-      "enabled": {{ has "fastmail" .enabledMcps }}
-    }
-  },
+  {{- $mcp := dict }}
+  {{- if has "enode" .enabledMcps }}
+  {{-   $mcp = set $mcp "enode" (dict "type" "remote" "url" "https://emcp.production.enode.com/mcp" "timeout" 2000) }}
+  {{- end }}
+  {{- if $mcp }}
+  "mcp": {{ $mcp | toJson }},
+  {{- end }}
   "theme": "system"
 }
