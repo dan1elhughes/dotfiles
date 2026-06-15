@@ -18,7 +18,6 @@ typeset -ga DEFAULT_OPENCODE_REVIEWERS=(
 
 typeset -ga DEFAULT_CLAUDE_REVIEWERS=(
 	"opus"
-	"fable"
 )
 
 typeset SWARM_REVIEW_TEMPLATE_DIR="${SWARM_REVIEW_TEMPLATE_DIR:-${XDG_CONFIG_HOME:-$HOME/.config}/opencode/swarm-review}"
