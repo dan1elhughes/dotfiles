@@ -8,11 +8,7 @@ fi
 
 alias o="opencode"
 alias oc="opencode --continue"
-alias osr="swarm-review --pr"
-
-swarm-review() {
-	SWARM_REVIEW_FINAL_OPENCODE_ARGS=${SWARM_REVIEW_FINAL_OPENCODE_ARGS:-{{ .smallModelArgs | quote }}} command swarm-review "$@"
-}
+alias osr="swarm-review --github --reviewer codex:gpt-5.5 --reviewer opencode:github-copilot/gemini-3.1-pro-preview --reviewer cursor-agent:composer-2.5 --reviewer claude:opus --final opencode:github-copilot/gemini-3.5-flash"
 
 ralph-linear() {
 	if [ "$#" -ne 1 ]; then
