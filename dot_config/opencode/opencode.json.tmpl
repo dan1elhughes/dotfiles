@@ -1,12 +1,13 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "plugin": [
-    "@mohak34/opencode-notifier@latest",
+    "@mohak34/opencode-notifier@latest"
   ],
   {{- $mcp := dict }}
   {{- if has "enode" .enabledMcps }}
   {{-   $mcp = set $mcp "enode" (dict "type" "remote" "url" "https://emcp.production.enode.com/mcp" "timeout" 2000) }}
   {{- end }}
+  {{-   $mcp = set $mcp "chrome-devtools" (dict "type" "local" "command" (list "npx" "-y" "chrome-devtools-mcp@latest")) }}
   {{- if $mcp }}
   "mcp": {{ $mcp | toJson }},
   {{- end }}
