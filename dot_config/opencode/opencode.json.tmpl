@@ -7,6 +7,7 @@
   {{- if has "enode" .enabledMcps }}
   {{-   $mcp = set $mcp "enode" (dict "type" "remote" "url" "https://emcp.production.enode.com/mcp" "timeout" 2000) }}
   {{- end }}
+  {{-   $mcp = set $mcp "entsoe" (dict "type" "remote" "url" "https://entsoemcp.com/mcp") }}
   {{-   $mcp = set $mcp "chrome-devtools" (dict "type" "local" "command" (list "npx" "-y" "chrome-devtools-mcp@latest")) }}
   {{- if $mcp }}
   "mcp": {{ $mcp | toJson }},
