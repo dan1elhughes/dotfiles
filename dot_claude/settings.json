@@ -1,0 +1,7 @@
+{
+  "env": {
+    "DISABLE_UPDATES": "1"
+  },
+  "model": "opus[1m]",
+  "theme": "auto"
+}
