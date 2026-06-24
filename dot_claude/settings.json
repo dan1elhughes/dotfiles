@@ -2,6 +2,9 @@
   "env": {
     "DISABLE_UPDATES": "1"
   },
+  "permissions": {
+    "defaultMode": "auto"
+  },
   "model": "opus[1m]",
   "theme": "auto"
 }
