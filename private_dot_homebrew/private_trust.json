@@ -1,0 +1,7 @@
+{
+  "trustedtaps": [
+    "1password/tap",
+    "anomalyco/tap",
+    "typewhisper/tap"
+  ]
+}
