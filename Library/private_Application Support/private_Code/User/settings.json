@@ -88,5 +88,8 @@
   "workbench.preferredHighContrastColorTheme": "Ayu Mirage Bordered",
   "workbench.preferredDarkColorTheme": "Ayu Mirage Bordered",
   "terminal.integrated.stickyScroll.enabled": false,
-  "update.showReleaseNotes": false
+  "update.showReleaseNotes": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
