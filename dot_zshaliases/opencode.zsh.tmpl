@@ -8,7 +8,18 @@ fi
 
 alias o="opencode"
 alias oc="opencode --continue"
-alias osr="swarm-review --github --reviewer codex:gpt-5.5 --reviewer opencode:github-copilot/gemini-3.1-pro-preview --reviewer cursor-agent:composer-2.5 --reviewer claude:opus --final opencode:github-copilot/gemini-3.5-flash"
+
+osr() {
+	swarm-review \
+		--github \
+		--reviewer codex:gpt-5.6-sol \
+		--reviewer cursor-agent:composer-2.5 \
+		--reviewer cursor-agent:cursor-grok-4.5-high \
+		--reviewer cursor-agent:glm-5.2-max \
+		--reviewer cursor-agent:gemini-3.1-pro \
+		--reviewer claude:fable \
+		--final codex:gpt-5.6-luna
+}
 
 ralph-linear() {
 	if [ "$#" -ne 1 ]; then
