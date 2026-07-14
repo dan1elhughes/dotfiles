@@ -12,6 +12,7 @@ alias oc="opencode --continue"
 osr() {
 	swarm-review \
 		--github \
+		--reviewer-timeout 30m \
 		--reviewer codex:gpt-5.6-sol \
 		--reviewer cursor-agent:composer-2.5 \
 		--reviewer cursor-agent:cursor-grok-4.5-high \
