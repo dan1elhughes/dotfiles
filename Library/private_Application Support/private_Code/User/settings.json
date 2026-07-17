@@ -91,5 +91,9 @@
   "update.showReleaseNotes": false,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "claudeCode.preferredLocation": "panel"
 }
