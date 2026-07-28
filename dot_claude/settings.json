@@ -7,5 +7,6 @@
   },
   "model": "opus[1m]",
   "theme": "auto",
-  "autoMemoryEnabled": false
+  "autoMemoryEnabled": false,
+  "spinnerVerbs": { "mode": "replace", "verbs": ["Thinking"] }
 }
