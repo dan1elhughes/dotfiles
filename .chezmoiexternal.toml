@@ -21,3 +21,9 @@ type = "archive"
 exact = true
 url = "https://github.com/twilio/twilio-sans-mono/raw/main/Twilio-Sans-Mono.zip"
 refreshPeriod = "168h"
+
+[".config/opencode/skills/humanizer"]
+type = "git-repo"
+exact = true
+url = "https://github.com/blader/humanizer"
+refreshPeriod = "168h"
