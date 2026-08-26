@@ -2,11 +2,18 @@
   "env": {
     "DISABLE_UPDATES": "1"
   },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "permissions": {
     "defaultMode": "auto"
   },
   "model": "opus[1m]",
   "theme": "auto",
   "autoMemoryEnabled": false,
-  "spinnerVerbs": { "mode": "replace", "verbs": ["Thinking"] }
+  "spinnerVerbs": {
+    "mode": "replace",
+    "verbs": ["Thinking"]
+  }
 }
