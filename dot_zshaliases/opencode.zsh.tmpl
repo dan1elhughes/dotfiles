@@ -9,6 +9,16 @@ fi
 alias o="opencode"
 alias oc="opencode --continue"
 
+os() {
+	local selected session_id
+
+	selected="$(opencode session list | fzf --header-lines=2)" || return 0
+	[ -n "$selected" ] || return 0
+
+	session_id="${selected%%[[:space:]]*}"
+	opencode --session "$session_id"
+}
+
 osr() {
 	swarm-review \
 		--github \
