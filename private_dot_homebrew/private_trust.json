@@ -3,5 +3,8 @@
     "1password/tap",
     "anomalyco/tap",
     "typewhisper/tap"
+  ],
+  "trustedformulae": [
+    "anomalyco/tap/opencode"
   ]
 }
