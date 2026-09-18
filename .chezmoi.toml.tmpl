@@ -1,6 +1,7 @@
 {{- $persemail := promptStringOnce . "persemail" "Personal email address" "github@danhughes.dev" -}}
 {{- $workemail := promptStringOnce . "workemail" "Work email address" -}}
 {{- $gitsigningkey := promptStringOnce . "gitsigningkey" "1Password git signing key (leave empty to disable signing)" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKFfB1MJMVHebVDoYMkhA+GNmgEngOW7WvcLeSL3uhxK" -}}
+{{- $mcpjungletoken := promptStringOnce . "mcpjungletoken" "MCPJungle MCP client access token" -}}
 
 {{- $brewfileChoices := list -}}
 {{- range (glob (joinPath .chezmoi.sourceDir "lib/Brewfile-*")) -}}
@@ -18,6 +19,7 @@
     persemail = {{ $persemail | quote }}
     workemail = {{ $workemail | quote }}
     gitsigningkey = {{ $gitsigningkey | quote }}
+    mcpjungletoken = {{ $mcpjungletoken | quote }}
     brewfiles = {{ $brewfiles | toJson }}
     resetDock = {{ $resetDock }}
     setWallpaper = {{ $setWallpaper }}
