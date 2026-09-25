@@ -20,3 +20,13 @@ Host *
 
 Host 10.10.10.20
     StrictHostKeyChecking no
+	User core
+
+Host 10.10.10.21
+	User core
+
+Host 10.10.10.22
+	User core
+
+Host 10.10.10.23
+	User core
