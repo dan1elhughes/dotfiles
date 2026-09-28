@@ -48,3 +48,5 @@
     defaultBranch = master
 [advice]
     skippedCherryPicks = false
+[credential "https://gitea.danhughes.dev"]
+    helper = "!f() { test \"$1\" = get && printf \"username=dan\\npassword=%s\\n\" \"$(op item get dan@gitea.danhughes.dev --fields token --reveal)\"; }; f"
