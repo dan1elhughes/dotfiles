@@ -1,0 +1,49 @@
+#!{{ .chezmoi.homeDir }}/.local/share/say-uk-venv/bin/python
+"""Speak British English with Kokoro's Fable voice and macOS afplay."""
+import os
+import subprocess
+import sys
+import tempfile
+import warnings
+
+if len(sys.argv) > 1:
+    text = " ".join(sys.argv[1:]).strip()
+elif not sys.stdin.isatty():
+    text = sys.stdin.read().strip()
+else:
+    text = ""
+
+if not text:
+    print("Usage: say-uk 'Hello there!'")
+    sys.exit(1)
+
+# Runtime uses cached files only. Downloads belong in say-uk-setup.
+os.environ["HF_HUB_OFFLINE"] = "1"
+
+# Kokoro uses these PyTorch APIs internally. Leave other warnings visible.
+warnings.filterwarnings(
+    "ignore", message="dropout option adds dropout after all but last recurrent layer.*",
+    category=UserWarning, module=r"torch\.nn\.modules\.rnn",
+)
+warnings.filterwarnings(
+    "ignore", message=r"`torch\.nn\.utils\.weight_norm` is deprecated.*",
+    category=FutureWarning, module=r"torch\.nn\.utils\.weight_norm",
+)
+warnings.filterwarnings(
+    "ignore", message=r"`torch\.jit\.script` is deprecated.*",
+    category=FutureWarning, module=r"torch\.jit\._script",
+)
+
+import soundfile as sf
+from huggingface_hub.errors import LocalEntryNotFoundError
+from kokoro import KPipeline
+
+try:
+    pipeline = KPipeline(lang_code="b", repo_id="hexgrad/Kokoro-82M")
+    for _, _, audio in pipeline(text, voice="bm_fable", speed=1.0):
+        with tempfile.NamedTemporaryFile(suffix=".wav") as audio_file:
+            sf.write(audio_file.name, audio, 24000)
+            subprocess.run(["afplay", audio_file.name], check=True)
+except LocalEntryNotFoundError:
+    print("say-uk: model or voice files are missing. Run say-uk-setup first.", file=sys.stderr)
+    sys.exit(1)

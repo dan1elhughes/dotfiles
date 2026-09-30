@@ -1,0 +1,21 @@
+#!/bin/sh
+# Install local dependencies. Do not sync the virtual environment or model files.
+set -eu
+
+if [ "$(uname -s)" != Darwin ]; then
+    printf '%s\n' 'say-uk needs macOS and afplay.' >&2
+    exit 1
+fi
+
+brew install espeak-ng python@3.12
+environment="$HOME/.local/share/say-uk-venv"
+mkdir -p "$HOME/.local/share"
+"$(brew --prefix python@3.12)/bin/python3.12" -m venv "$environment"
+"$environment/bin/python" -m pip install 'kokoro==0.9.4' soundfile
+# Fetch the model, English language data, and Fable voice during setup only.
+HF_HUB_OFFLINE=0 "$environment/bin/python" -c '
+from kokoro import KPipeline
+pipeline = KPipeline(lang_code="b", repo_id="hexgrad/Kokoro-82M")
+pipeline.load_voice("bm_fable")
+'
+printf '%s\n' 'say-uk is installed and ready for offline use.'
