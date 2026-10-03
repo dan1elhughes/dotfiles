@@ -1,6 +1,7 @@
 tap "typewhisper/tap"
 brew "chezmoi"
 cask "balenaetcher"
+cask "elgato-camera-hub"
 cask "firefox"
 cask "fork"
 cask "google-chrome"
