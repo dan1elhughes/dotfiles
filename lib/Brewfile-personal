@@ -1,3 +1,4 @@
+cask "epic-games"
 cask "home-assistant"
 cask "steam"
 cask "transmission"
