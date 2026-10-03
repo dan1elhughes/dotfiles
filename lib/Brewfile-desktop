@@ -1,5 +1,6 @@
 tap "typewhisper/tap"
 brew "chezmoi"
+cask "balenaetcher"
 cask "firefox"
 cask "fork"
 cask "google-chrome"
