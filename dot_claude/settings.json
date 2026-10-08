@@ -7,20 +7,26 @@
     "commit": "",
     "pr": ""
   },
-  "mcpServers": {
-    "rephone": {
-      "command": "rephone",
-      "args": ["mcp"]
-    }
-  },
   "permissions": {
     "defaultMode": "auto"
   },
   "model": "opus[1m]",
-  "theme": "auto",
-  "autoMemoryEnabled": false,
   "spinnerVerbs": {
     "mode": "replace",
-    "verbs": ["Thinking"]
-  }
+    "verbs": [
+      "Thinking"
+    ]
+  },
+  "autoMemoryEnabled": false,
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "auto",
+  "mcpServers": {
+    "rephone": {
+      "command": "rephone",
+      "args": [
+        "mcp"
+      ]
+    }
+  },
+  "agentPushNotifEnabled": false
 }
