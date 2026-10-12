@@ -1,8 +1,10 @@
 [user]
     name = "Dan Hughes"
     email = "{{ .persemail }}"
-{{ if .gitsigningkey }}
+{{ if and .gitsigningkey .gitsign1password }}
     signingkey = "{{ .gitsigningkey }}"
+{{ else if .gitsigningkey }}
+    signingkey = "{{ .gitsigningkeyfile }}"
 {{ end }}
 [includeIf "gitdir:~/src/github.com/enode/"]
     path = ~/.work.gitconfig
@@ -11,7 +13,9 @@
     format = ssh
 [gpg "ssh"]
     allowedSignersFile = ~/.ssh/allowed_signers
+{{ if .gitsign1password }}
     program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+{{ end }}
 [commit]
     gpgsign = true
 {{ end }}

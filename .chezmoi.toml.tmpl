@@ -1,6 +1,14 @@
 {{- $persemail := promptStringOnce . "persemail" "Personal email address" "github@danhughes.dev" -}}
 {{- $workemail := promptStringOnce . "workemail" "Work email address" -}}
-{{- $gitsigningkey := promptStringOnce . "gitsigningkey" "1Password git signing key (leave empty to disable signing)" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKFfB1MJMVHebVDoYMkhA+GNmgEngOW7WvcLeSL3uhxK" -}}
+{{- $gitsigningkey := promptStringOnce . "gitsigningkey" "Git signing public key (leave empty to disable signing)" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKFfB1MJMVHebVDoYMkhA+GNmgEngOW7WvcLeSL3uhxK" -}}
+{{- $gitsign1password := false -}}
+{{- $gitsigningkeyfile := "" -}}
+{{- if $gitsigningkey -}}
+{{-   $gitsign1password = promptBoolOnce . "gitsign1password" "Sign git commits with 1Password" true -}}
+{{-   if not $gitsign1password -}}
+{{-     $gitsigningkeyfile = promptStringOnce . "gitsigningkeyfile" "Path to private SSH signing key" "~/.ssh/id_ed25519" -}}
+{{-   end -}}
+{{- end -}}
 {{- $mcpjungletoken := promptStringOnce . "mcpjungletoken" "MCPJungle MCP client access token" -}}
 
 {{- $brewfileChoices := list -}}
@@ -19,6 +27,8 @@
     persemail = {{ $persemail | quote }}
     workemail = {{ $workemail | quote }}
     gitsigningkey = {{ $gitsigningkey | quote }}
+    gitsign1password = {{ $gitsign1password }}
+    gitsigningkeyfile = {{ $gitsigningkeyfile | quote }}
     mcpjungletoken = {{ $mcpjungletoken | quote }}
     brewfiles = {{ $brewfiles | toJson }}
     resetDock = {{ $resetDock }}
