@@ -1,8 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": [
-    "superpowers@git+https://github.com/obra/superpowers.git"
-  ],
+  
   "mcp": {
     "mcpjungle": {
       "type": "remote",
@@ -20,5 +18,12 @@
     }
   },
   "theme": "system",
-  "lsp": true
+  "lsp": true,
+  "plugins": [
+    "superpowers@git+https://github.com/obra/superpowers.git"
+  ],
+  "disabled_providers": [
+    "cortecs"
+  ]
+  
 }
