@@ -20,6 +20,7 @@
   "autoMemoryEnabled": false,
   "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
+  "agentPushNotifEnabled": false,
   "mcpServers": {
     "rephone": {
       "command": "rephone",
@@ -27,6 +28,5 @@
         "mcp"
       ]
     }
-  },
-  "agentPushNotifEnabled": false
+  }
 }
