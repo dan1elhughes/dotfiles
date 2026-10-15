@@ -1,0 +1,71 @@
+{{- /*
+Routing map, identical on every machine for now.
+
+To give the work Mac its own map:
+
+1. In .chezmoi.toml.tmpl, under the other prompts, add:
+
+     {{- $isWork := promptBoolOnce . "isWork" "Is this the work Mac" false -}}
+
+   and store it in the [data] block as isWork = {{ $isWork }}.
+   Define the flag before this template uses it, otherwise the render fails on
+   a machine whose config data has no such key.
+
+2. Split the categories object below. Keep the personal map in the false
+   branch and write the work map in the true branch:
+
+     {{- if .isWork }}
+     ... work categories ...
+     {{- else }}
+     ... personal categories ...
+     {{- end }}
+
+   Leave the rest of the file alone: safetyNet, preserveCache and minConfidence
+   are not per-machine settings.
+*/ -}}
+{
+  "version": 1,
+  "enabled": true,
+  "minConfidence": 0.6,
+  "preserveCache": true,
+  "safetyNet": {
+    "enabled": false,
+    "threshold": 0.6
+  },
+  "fallback": {
+    "model": {
+      "providerID": "opencode-go",
+      "modelID": "deepseek-v4.1-flash"
+    }
+  },
+  "categories": {
+    "trivial": {
+      "builtin": true,
+      "model": {
+        "providerID": "opencode-go",
+        "modelID": "mimo-v2.6-flash"
+      }
+    },
+    "research": {
+      "builtin": true,
+      "model": {
+        "providerID": "opencode-go",
+        "modelID": "deepseek-v4.1-flash"
+      }
+    },
+    "implement": {
+      "builtin": true,
+      "model": {
+        "providerID": "opencode-go",
+        "modelID": "glm-5.3-flash"
+      }
+    },
+    "hard": {
+      "builtin": true,
+      "model": {
+        "providerID": "opencode-go",
+        "modelID": "glm-5.3"
+      }
+    }
+  }
+}

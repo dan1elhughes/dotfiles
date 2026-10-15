@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "fields": {
+    "lightThemeId": {
+      "value": "openchamber-light",
+      "surfaces": {
+        "desktop": { "value": "github-light" }
+      }
+    },
+    "darkThemeId": {
+      "value": "openchamber-dark",
+      "surfaces": {
+        "desktop": { "value": "github-dark" }
+      }
+    },
+    "notifyOnSubtasks": { "value": true },
+    "notifyOnCompletion": { "value": true },
+    "notifyOnError": { "value": true },
+    "notifyOnQuestion": { "value": true },
+    "notificationTemplates": {
+      "value": {
+        "completion": {
+          "title": "{agent_name} is ready",
+          "message": "{model_name} completed the task"
+        },
+        "error": {
+          "title": "Tool error",
+          "message": "{last_message}"
+        },
+        "question": {
+          "title": "Input needed",
+          "message": "{last_message}"
+        },
+        "subtask": {
+          "title": "{agent_name} is ready",
+          "message": "{model_name} completed the task"
+        }
+      }
+    },
+    "favoriteModels": { "value": [] },
+    "hiddenModels": { "value": [] },
+    "collapsedModelProviders": { "value": [] },
+    "customProviderIcons": { "value": {} },
+    "favoriteAgents": { "value": [] },
+    "themeVariant": { "value": "dark" },
+    "weekStartPreference": { "value": "monday" },
+    "smallModelUseDefault": { "value": true },
+    "nativeNotificationsEnabled": { "value": true },
+    "globalBehaviorPrompt": {
+      "value": "Always write in ASD-STE100 Simplified Technical English.\n\nOnly add comments that cannot be derived from reading the code.\n"
+    },
+    "responseStyleEnabled": { "value": true },
+    "responseStylePreset": { "value": "concise" },
+    "responseStyleCustomInstructions": { "value": "" },
+    "defaultModel": { "value": "opencode/auto" },
+    "defaultAgent": { "value": "build" },
+    "workStatusHiddenSections": {
+      "value": [
+        "repository",
+        "usage",
+        "telemetry",
+        "contextSources"
+      ]
+    },
+    "workStatusHiddenSectionsExplicit": { "value": true },
+    "workStatusPanelEnabled": { "value": true },
+    "diffLayoutPreference": { "value": "dynamic" },
+    "sessionReviewOfferEnabled": { "value": true }
+  }
+}
