@@ -1,6 +1,9 @@
 {{- if eq .chezmoi.os "darwin" -}}
 #!/usr/bin/env bash
 
+# Do not auto-update Homebrew on every apply: it is slow and silent.
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 if ! command -v brew &> /dev/null
 then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -8,7 +11,7 @@ fi
 
 {{ range .brewfiles -}}
 # {{ . }} hash: {{ include (print "lib/" .) | sha256sum }}
-brew bundle --quiet --force --file={{ joinPath $.chezmoi.sourceDir "lib" . | quote }}
+brew bundle --force --file={{ joinPath $.chezmoi.sourceDir "lib" . | quote }}
 {{ end -}}
 
 {{ end -}}
