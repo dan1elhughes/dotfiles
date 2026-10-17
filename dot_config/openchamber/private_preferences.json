@@ -40,7 +40,9 @@
         }
       }
     },
-    "favoriteModels": { "value": [] },
+    "favoriteModels": {
+      "value": [{ "providerID": "openchamber", "modelID": "auto" }]
+    },
     "recentModels": {
       "updatedAt": 1792508811512,
       "value": [
@@ -80,6 +82,9 @@
     "workStatusPanelEnabled": { "value": true },
     "diffLayoutPreference": { "value": "dynamic", "updatedAt": 0 },
     "sessionReviewOfferEnabled": { "value": true, "updatedAt": 0 },
+    "sessionGoalChecker": { "value": "classifier", "updatedAt": 0 },
+    "sessionGoalDefaultBudgetEnabled": { "value": false, "updatedAt": 0 },
+    "walkthroughModelOverride": { "value": "opencode-go/deepseek-v4.1-flash", "updatedAt": 0 },
     "showDeletionDialog": { "value": false, "updatedAt": 1792423167464 },
     "sidebarProjectSortOrder": { "value": "date-added", "updatedAt": 1792423167464 },
     "sidebarProjectDisplayMode": { "value": "single", "updatedAt": 1792423167464 },
