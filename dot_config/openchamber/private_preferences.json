@@ -52,7 +52,7 @@
     "responseStyleEnabled": { "value": true },
     "responseStylePreset": { "value": "concise" },
     "responseStyleCustomInstructions": { "value": "" },
-    "defaultModel": { "value": "opencode/auto" },
+    "defaultModel": { "value": "openchamber/auto" },
     "defaultAgent": { "value": "build" },
     "workStatusHiddenSections": {
       "value": [
