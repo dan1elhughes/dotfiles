@@ -22,6 +22,10 @@
 {{- $sudoTouchID := promptBoolOnce . "sudoTouchID" "Use TouchID for sudo" true -}}
 
 {{- $model := promptStringOnce . "model" "Model" "openai/gpt-5.5" -}}
+{{- $routingTrivialModel := promptStringOnce . "routingTrivialModel" "Trivial routing model (provider/model)" "opencode-go/mimo-v2.6-flash" -}}
+{{- $routingResearchModel := promptStringOnce . "routingResearchModel" "Research routing model (provider/model)" "opencode-go/deepseek-v4.1-flash" -}}
+{{- $routingImplementModel := promptStringOnce . "routingImplementModel" "Implement routing model (provider/model)" "opencode-go/glm-5.3-flash" -}}
+{{- $routingHardModel := promptStringOnce . "routingHardModel" "Hard routing model (provider/model)" "opencode-go/glm-5.3" -}}
 
 [data]
     persemail = {{ $persemail | quote }}
@@ -35,5 +39,9 @@
     setWallpaper = {{ $setWallpaper }}
     sudoTouchID = {{ $sudoTouchID }}
     model = {{ $model | quote }}
+    routingTrivialModel = {{ $routingTrivialModel | quote }}
+    routingResearchModel = {{ $routingResearchModel | quote }}
+    routingImplementModel = {{ $routingImplementModel | quote }}
+    routingHardModel = {{ $routingHardModel | quote }}
 [diff]
     exclude = ["externals"]
