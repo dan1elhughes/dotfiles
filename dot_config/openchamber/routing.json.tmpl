@@ -13,6 +13,7 @@
   {{- $model := dict "providerID" (index $parts 0) "modelID" (index $parts 1) -}}
   {{- $_ := set $categories $category (dict "builtin" true "model" $model) -}}
 {{- end -}}
+{{- $_ := set (get $categories "hard") "variant" "max" -}}
 {{- dict
   "version" 1
   "enabled" true
