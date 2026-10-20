@@ -14,6 +14,8 @@
   {{- $_ := set $categories $category (dict "builtin" true "model" $model) -}}
 {{- end -}}
 {{- $_ := set (get $categories "hard") "variant" "max" -}}
+{{- $_ := set (get $categories "research") "variant" "low" -}}
+{{- $_ := set (get $categories "implement") "variant" "medium" -}}
 {{- dict
   "version" 1
   "enabled" true
