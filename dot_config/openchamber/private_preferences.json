@@ -2,22 +2,25 @@
   "version": 1,
   "fields": {
     "lightThemeId": {
+      "updatedAt": 0,
       "value": "openchamber-light",
       "surfaces": {
-        "desktop": { "value": "github-light" }
+        "desktop": { "value": "github-light", "updatedAt": 0 }
       }
     },
     "darkThemeId": {
+      "updatedAt": 0,
       "value": "openchamber-dark",
       "surfaces": {
-        "desktop": { "value": "github-dark" }
+        "desktop": { "value": "github-dark", "updatedAt": 0 }
       }
     },
-    "notifyOnSubtasks": { "value": true },
-    "notifyOnCompletion": { "value": true },
-    "notifyOnError": { "value": true },
-    "notifyOnQuestion": { "value": true },
+    "notifyOnSubtasks": { "value": true, "updatedAt": 0 },
+    "notifyOnCompletion": { "value": true, "updatedAt": 0 },
+    "notifyOnError": { "value": true, "updatedAt": 0 },
+    "notifyOnQuestion": { "value": true, "updatedAt": 0 },
     "notificationTemplates": {
+      "updatedAt": 0,
       "value": {
         "completion": {
           "title": "{agent_name} is ready",
@@ -38,22 +41,33 @@
       }
     },
     "favoriteModels": { "value": [] },
-    "hiddenModels": { "value": [] },
-    "collapsedModelProviders": { "value": [] },
-    "customProviderIcons": { "value": {} },
-    "favoriteAgents": { "value": [] },
-    "themeVariant": { "value": "dark" },
-    "weekStartPreference": { "value": "monday" },
-    "smallModelUseDefault": { "value": true },
-    "nativeNotificationsEnabled": { "value": true },
+    "recentModels": {
+      "updatedAt": 1792508811512,
+      "value": [
+        { "providerID": "openai", "modelID": "gpt-6.1-sol-fast" },
+        { "providerID": "openai", "modelID": "gpt-5.6-terra-fast" },
+        { "providerID": "claude-code", "modelID": "claude-opus-5-5[1m]" },
+        { "providerID": "openai", "modelID": "gpt-6.1-sol" },
+        { "providerID": "openai", "modelID": "gpt-6-astra-fast" }
+      ]
+    },
+    "hiddenModels": { "value": [], "updatedAt": 0 },
+    "collapsedModelProviders": { "value": [], "updatedAt": 0 },
+    "customProviderIcons": { "value": {}, "updatedAt": 0 },
+    "favoriteAgents": { "value": [], "updatedAt": 0 },
+    "themeVariant": { "value": "dark", "updatedAt": 0 },
+    "weekStartPreference": { "value": "monday", "updatedAt": 0 },
+    "smallModelUseDefault": { "value": true, "updatedAt": 0 },
+    "nativeNotificationsEnabled": { "value": true, "updatedAt": 0 },
     "globalBehaviorPrompt": {
+      "updatedAt": 0,
       "value": "Always write in ASD-STE100 Simplified Technical English.\n\nOnly add comments that cannot be derived from reading the code.\n"
     },
-    "responseStyleEnabled": { "value": true },
-    "responseStylePreset": { "value": "concise" },
-    "responseStyleCustomInstructions": { "value": "" },
-    "defaultModel": { "value": "openchamber/auto" },
-    "defaultAgent": { "value": "build" },
+    "responseStyleEnabled": { "value": true, "updatedAt": 0 },
+    "responseStylePreset": { "value": "concise", "updatedAt": 0 },
+    "responseStyleCustomInstructions": { "value": "", "updatedAt": 0 },
+    "defaultModel": { "value": "openchamber/auto", "updatedAt": 0 },
+    "defaultAgent": { "value": "build", "updatedAt": 0 },
     "workStatusHiddenSections": {
       "value": [
         "repository",
@@ -62,9 +76,14 @@
         "contextSources"
       ]
     },
-    "workStatusHiddenSectionsExplicit": { "value": true },
+    "workStatusHiddenSectionsExplicit": { "value": true, "updatedAt": 0 },
     "workStatusPanelEnabled": { "value": true },
-    "diffLayoutPreference": { "value": "dynamic" },
-    "sessionReviewOfferEnabled": { "value": true }
+    "diffLayoutPreference": { "value": "dynamic", "updatedAt": 0 },
+    "sessionReviewOfferEnabled": { "value": true, "updatedAt": 0 },
+    "showDeletionDialog": { "value": false, "updatedAt": 1792423167464 },
+    "sidebarProjectSortOrder": { "value": "date-added", "updatedAt": 1792423167464 },
+    "sidebarProjectDisplayMode": { "value": "single", "updatedAt": 1792423167464 },
+    "toolJsonViewMode": { "value": "summary", "updatedAt": 1792495652453 },
+    "openTrackerLinksOnBoard": { "value": false, "updatedAt": 1792510696118 }
   }
 }
