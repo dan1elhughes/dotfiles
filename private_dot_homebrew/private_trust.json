@@ -5,7 +5,7 @@
     "typewhisper/tap"
   ],
   "trustedformulae": [
-    "anomalyco/tap/opencode",
+    "anomalyco/tap/opencode-v2",
     "steipete/tap/sag"
   ]
 }
