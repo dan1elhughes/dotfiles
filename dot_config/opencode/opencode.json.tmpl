@@ -9,19 +9,21 @@
   ],
   
   "mcp": {
-    "mcpjungle": {
-      "type": "remote",
-      "url": "https://mcp.danhughes.dev/mcp",
-      "headers": { "Authorization": "Bearer {{ .mcpjungletoken }}" }
-    },
-    "enode": {
-      "type": "remote",
-      "url": "https://emcp.production.enode.com/mcp",
-      "timeout": { "execution": 30000 }
-    },
-    "chrome-devtools": {
-      "type": "local",
-      "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
+    "servers": {
+      "mcpjungle": {
+        "type": "remote",
+        "url": "https://mcp.danhughes.dev/mcp",
+        "headers": { "Authorization": "Bearer {{ .mcpjungletoken }}" }
+      },
+      "enode": {
+        "type": "remote",
+        "url": "https://emcp.production.enode.com/mcp",
+        "timeout": { "execution": 30000 }
+      },
+      "chrome-devtools": {
+        "type": "local",
+        "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
+      }
     }
   },
   "theme": "system",
