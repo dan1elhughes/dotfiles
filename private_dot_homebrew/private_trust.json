@@ -1,8 +1,7 @@
 {
   "trustedtaps": [
     "1password/tap",
-    "anomalyco/tap",
-    "typewhisper/tap"
+    "anomalyco/tap"
   ],
   "trustedformulae": [
     "anomalyco/tap/opencode-v2",
