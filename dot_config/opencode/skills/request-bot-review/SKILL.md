@@ -10,7 +10,7 @@ description: >
 Post one message to Slack channel `C0BKAFQHB50` with `slack_send_message`:
 
 ```
-<@U0BA0FA8GJX> review and approve <url>. Respond only on the PR. Do not reply in Slack; add only a ✅ or ❌ reaction to this message.
+<@U0BA0FA8GJX> Approve <url>
 ```
 
 - Use full PR URLs. Join more PRs with "and". If the user gives none, use `gh pr view --json url -q .url`.
