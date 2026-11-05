@@ -17,5 +17,7 @@ function gcai() {
 		return 1
 	fi
 
-	opencode run --command commit-auto --model {{ .model }}
+	opencode run --model {{ .model }} "Choose a concise commit message for the staged diff below. Do not inspect the worktree, run other commands, or stage or unstage files. Run only git commit -m with the chosen message and -e.
+
+$(git diff --staged)"
 }
